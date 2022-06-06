@@ -1,5 +1,5 @@
 /*!
-* CSSViewer, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
+* designr, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
 *
 * https://github.com/miled/cssviewer
 * https://chrome.google.com/webstore/detail/cssviewer/ggfgijbpiheegefliciemofobhmofgce
@@ -25,14 +25,14 @@ chrome.browserAction.onClicked.addListener(function(tab)
 {
 	if( tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
 	{
-		alert( "CSSViewer doesn't work on Google Chrome webstore!" );
+		alert( "designr doesn't work on Google Chrome webstore!" );
 
 		return;
 	}
 
 	if( ! cssViewerLoaded ) 
 	{
-		cssCiewerContextMenusParent  = chrome.contextMenus.create( { "title" : "CSSViewer console", contexts:["all"] } );
+		cssCiewerContextMenusParent  = chrome.contextMenus.create( { "title" : "designr console", contexts:["all"] } );
 
 		chrome.contextMenus.create( { "title": "element"                    , contexts:["all"] , "parentId": cssCiewerContextMenusParent, "onclick": cssCiewerDebugEl } );
 		chrome.contextMenus.create( { "title": "element.id"                 , contexts:["all"] , "parentId": cssCiewerContextMenusParent, "onclick": cssCiewerDebugElId } );

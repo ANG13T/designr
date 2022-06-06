@@ -1,5 +1,5 @@
 /*!
-* CSSViewer, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
+* designr, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
 *
 * https://github.com/miled/cssviewer
 * https://chrome.google.com/webstore/detail/cssviewer/ggfgijbpiheegefliciemofobhmofgce
@@ -678,9 +678,9 @@ function CSSViewerIsElementInViewport(el) {
 }
 
 /*
-* CSSViewer Class
+* designr Class
 */
-function CSSViewer()
+function designr()
 {
 	// Create a block to display informations
 	this.CreateBlock = function() {
@@ -746,11 +746,11 @@ function CSSViewer()
 			footer.id = 'CSSViewer_footer';
 
 			//< 
-			footer.appendChild( document.createTextNode('CSSViewer 1.7. keys: [f] Un/Freeze. [c] Css. [Esc] Close.') ); 
+			footer.appendChild( document.createTextNode('designr 1.7. keys: [f] Un/Freeze. [c] Css. [Esc] Close.') ); 
 			block.appendChild(footer);
 		}
 		
-		cssViewerInsertMessage( "CSSViewer loaded! Hover any element you want to inspect in the page." );
+		cssViewerInsertMessage( "designr loaded! Hover any element you want to inspect in the page." );
 
 		return block;
 	}
@@ -851,9 +851,9 @@ function CSSViewer()
 }
 
 /*
-* Check if CSSViewer is enabled
+* Check if designr is enabled
 */
-CSSViewer.prototype.IsEnabled = function()
+designr.prototype.IsEnabled = function()
 {
 	var document = GetCurrentDocument();
 
@@ -865,9 +865,9 @@ CSSViewer.prototype.IsEnabled = function()
 }
 
 /*
-* Enable CSSViewer
+* Enable designr
 */
-CSSViewer.prototype.Enable = function()
+designr.prototype.Enable = function()
 {
 	var document = GetCurrentDocument();
 	var block = document.getElementById('CSSViewer_block');
@@ -884,9 +884,9 @@ CSSViewer.prototype.Enable = function()
 }
 
 /*
-* Disable CSSViewer
+* Disable designr
 */
-CSSViewer.prototype.Disable = function()
+designr.prototype.Disable = function()
 {
 	var document = GetCurrentDocument();
 	var block = document.getElementById('CSSViewer_block');
@@ -904,9 +904,9 @@ CSSViewer.prototype.Disable = function()
 }
 
 /*
-* Freeze CSSViewer
+* Freeze designr
 */
-CSSViewer.prototype.Freeze = function()
+designr.prototype.Freeze = function()
 {
 	var document = GetCurrentDocument();
 	var block = document.getElementById('CSSViewer_block');
@@ -920,9 +920,9 @@ CSSViewer.prototype.Freeze = function()
 }
 
 /*
-* Unfreeze CSSViewer
+* Unfreeze designr
 */
-CSSViewer.prototype.Unfreeze = function()
+designr.prototype.Unfreeze = function()
 {
 	var document = GetCurrentDocument();
 	var block = document.getElementById('CSSViewer_block');
@@ -1028,9 +1028,9 @@ function CssViewerKeyMap(e) {
 
 
 /*
-* CSSViewer entry-point
+* designr entry-point
 */
-cssViewer = new CSSViewer();
+cssViewer = new designr();
 
 if ( cssViewer.IsEnabled() ){
 	cssViewer.Disable();  
