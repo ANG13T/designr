@@ -24,3 +24,21 @@
   color: #61dafb;
 }
 
+.border-gradient {
+  --angle: 0deg;
+  border: 10px solid;
+  border-image: linear-gradient(var(--angle), #12c2e9, #c471ed, #f64f59) 1;
+  animation: 5s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
