@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { goTo } from 'react-chrome-extension-router';
+import { goBack, goTo } from 'react-chrome-extension-router';
 import logo from '../../assets/designr-logo.png';
 import { supabase } from '../../services/supabaseClient';
 import Register from '../Register/Register';
@@ -54,6 +54,7 @@ function Login() {
     } finally {
       setLoading(false)
       console.log("done!!!")
+      goBack()
     }
   }
 
