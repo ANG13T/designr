@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { goTo } from 'react-chrome-extension-router';
 import logo from '../../assets/designr-logo.png';
+import { supabase } from '../../services/supabaseClient';
 import Register from '../Register/Register';
 import './Login.css';
 
@@ -43,8 +44,20 @@ function Login() {
     }
   }
 
-  const loginUser = () => {
+  const loginUser = async() => {
     setLoading(true);
+
+    try {
+      setLoading(true)
+      const { error } = await supabase.auth.signInWithOtp({ email })
+      if (error) throw error
+      alert('Check your email for the login link!')
+    } catch (error: any) {
+      alert(error.error_description || error.message)
+    } finally {
+      setLoading(false)
+      console.log("done!!!")
+    }
   }
 
   const googleLogin = () => {
