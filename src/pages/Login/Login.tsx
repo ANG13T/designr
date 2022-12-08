@@ -45,13 +45,10 @@ function Login() {
   }
 
   const loginUser = async() => {
-    setLoading(true);
-
     try {
       setLoading(true)
-      const { error } = await supabase.auth.signInWithOtp({ email })
+      const { data, error } = await supabase.auth.signInWithPassword({ email: email, password: password })
       if (error) throw error
-      alert('Check your email for the login link!')
     } catch (error: any) {
       alert(error.error_description || error.message)
     } finally {
