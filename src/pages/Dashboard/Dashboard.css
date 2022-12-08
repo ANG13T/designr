@@ -1,21 +1,17 @@
-.App {
+.Dashboard {
     text-align: center;
     width: 25rem;
     height: 32rem;
   }
   
-  .App-logo {
-    height: 20vmin;
+  .Dashboard-logo {
+    width: 5rem;
     pointer-events: none;
   }
   
-  .App-header {
+  .Dashboard-header {
     background-color: #212328;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
   }
@@ -28,15 +24,6 @@
     border-image: linear-gradient(var(--angle), #12c2e9, #c471ed, #f64f59) 1;
     animation: 5s rotate linear infinite;
   }
-
-  .c-button {
-    text-align: center !important;
-    min-width: 80vw;
-    padding: 15px;
-    font-size: 1rem;
-    transition: 0.5s;
-  }
-  
   
   @keyframes rotate {
     to {
