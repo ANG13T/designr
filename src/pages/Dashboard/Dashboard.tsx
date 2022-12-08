@@ -9,12 +9,12 @@ function Dashboard() {
   return (
     <div className="Dashboard">
       <header className="Dashboard-header border-gradient border-gradient-purple">
-        <div className="border-white w-full flex">
+        <div className="border-white w-full flex justify-between">
           <div>
-          <img src={logo} className="Dashboard-logo" alt="logo" />
+          <img src={logo} className="Dashboard-logo h-10 ml-5 mt-4" alt="logo" />
           </div>
           <div className="p-4 justify-end">
-            <button type="button" className="text-white border border-white hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800">
+            <button type="button" className="text-white border border-white hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-4 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800">
               <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
             </button>
 
