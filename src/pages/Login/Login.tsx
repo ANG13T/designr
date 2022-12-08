@@ -1,5 +1,7 @@
 import React from 'react';
+import { goTo } from 'react-chrome-extension-router';
 import logo from '../../assets/designr-logo.png';
+import Register from '../Register/Register';
 import './Login.css';
 
 function Login() {
@@ -54,9 +56,9 @@ function Login() {
                             </div>
                         </div>
                         <p className="text-sm font-light text-white">
-                                Don't have an account? <a href="/signup"
+                                Don't have an account? <button onClick={() => goTo(Register)}
                                     className="font-medium text-blue-400">Create an
-                                    Account</a>
+                                    Account</button>
                             </p>
                     </form>
                 </div>
