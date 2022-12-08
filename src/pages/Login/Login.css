@@ -28,6 +28,15 @@
     border-image: linear-gradient(var(--angle), #12c2e9, #c471ed, #f64f59) 1;
     animation: 5s rotate linear infinite;
   }
+
+  .c-button {
+    text-align: center !important;
+    min-width: 80vw;
+    padding: 15px;
+    font-size: 1rem;
+    transition: 0.5s;
+  }
+  
   
   @keyframes rotate {
     to {
