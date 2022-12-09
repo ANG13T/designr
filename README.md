@@ -1,7 +1,8 @@
 # designr
 
 ### Features
-- logo + login auth with google or login form
+- make draggable
+- login auth with google
 - palette display
 - create a palette (palette name and/ url)
 - share a palette
