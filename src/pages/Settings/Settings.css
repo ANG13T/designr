@@ -37,3 +37,7 @@
     inherits: false;
   }
   
+
+.custom-button {
+    width: 250px;
+}

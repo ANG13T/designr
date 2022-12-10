@@ -23,7 +23,8 @@ function App() {
   }, [])
   
   return (
-    <div>
+    <div  className="popup"
+    >
       {!session ? 
       <div className="App">
       <header className="App-header border-gradient border-gradient-purple">
