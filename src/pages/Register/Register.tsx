@@ -11,6 +11,7 @@ function Register() {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('border-gray-300'); 
   const [passwordErrror, setPasswordError] = useState('border-gray-300');
+  const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
   const validateEmail = (email: string) => {
@@ -22,6 +23,7 @@ function Register() {
   };
 
   const checkError = () => {
+    setErrorMessage('');
     if(!loading) {
       let isValid = true;
       if(email.length > 0 && validateEmail(email)) {
@@ -50,7 +52,9 @@ function Register() {
       const { data, error } = await supabase.auth.signUp({ email: email, password: password })
       if (error) throw error
     } catch (error: any) {
+
       alert(error.error_description || error.message)
+      setErrorMessage(error.error_description || error.message)
     } finally {
       setLoading(false)
       console.log("done!!!")
@@ -90,6 +94,8 @@ function Register() {
                                 className={`text-sm text-black px-4 py-2 transition duration-300 border ${passwordErrror} rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200`}
                             />
                         </div>
+
+                        <p className="text-sm font-semibold text-red">{errorMessage}</p>
 
                         <div>
                             <button
