@@ -8,8 +8,14 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import { supabase } from './services/supabaseClient';
 import Dashboard from './pages/Dashboard/Dashboard';
+import { createBrowserSupabaseClient, Session } from '@supabase/auth-helpers-nextjs'
+import { SessionContextProvider } from '@supabase/auth-helpers-react'
 
-function App() {
+function App({
+  Component,
+  pageProps,
+}) {
+  const [supabase] = useState(() => createBrowserSupabaseClient())
   const [session, setSession] = useState<any>(null)
 
   useEffect(() => {
@@ -23,6 +29,7 @@ function App() {
   }, [])
   
   return (
+    <SessionContextProvider supabaseClient={supabase} initialSession={pageProps.initialSession}>
     <div  className="popup"
     >
       {!session ? 
@@ -45,6 +52,7 @@ function App() {
     </div>: <Dashboard></Dashboard>}
       
     </div>
+    </SessionContextProvider>
   );
 }
 
