@@ -1,0 +1,10 @@
+{
+    "name": "designr",
+    "description": "Base Level Extension",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "Next.js app",
+        "default_popup": "index.html"
+      }
+  }
