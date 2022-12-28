@@ -29,6 +29,11 @@
     animation: 5s rotate linear infinite;
   }
 
+  .error-message {
+    color: #f64f59;
+    text-align: left;
+  }
+
   .c-button {
     text-align: center !important;
     min-width: 80vw;

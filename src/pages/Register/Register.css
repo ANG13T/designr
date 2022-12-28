@@ -19,8 +19,12 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
-  
 
+  .error-message {
+    color: #f64f59;
+    text-align: left;
+  }
+  
   .border-gradient {
     --angle: 0deg;
     border: 10px solid;

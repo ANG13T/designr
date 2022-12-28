@@ -53,12 +53,11 @@ function Register() {
       if (error) throw error
     } catch (error: any) {
 
-      alert(error.error_description || error.message)
+      // alert(error.error_description || error.message)
       setErrorMessage(error.error_description || error.message)
     } finally {
       setLoading(false)
       console.log("done!!!")
-      goBack()
     }
   }
 
@@ -95,7 +94,7 @@ function Register() {
                             />
                         </div>
 
-                        <p className="text-sm font-semibold text-red">{errorMessage}</p>
+                        <p className="text-sm error-message">{errorMessage}</p>
 
                         <div>
                             <button
