@@ -4,28 +4,22 @@ import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import logo from '/designr-logo.png';
 
-const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
   return (
     <div className={styles.App}>
-      <header className="App-header border-gradient border-gradient-purple">
-        <img src='next-assets/designr-logo.png' className="App-logo mb-20" alt="logo" />
+      <header className={styles.header}>
+        <img src='next-assets/designr-logo.png' className={styles.logo} alt="logo" />
 
-        <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-
-        {/* <button onClick={() => goTo(Login)} type="button" className="c-button text-white bg-transparent hover:bg-white hover:text-black border border-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-10 mr-10 mb-10 mt-5">
+        <button type="button" className={styles.customButton}>
           Log into Account
         </button>
 
 
-      <div className='w-full ml-10 mr-10'>
-        <button onClick={() => goTo(Register)} type="button" className="c-button text-white bg-transparent hover:bg-white hover:text-black border border-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">
+      <div className={styles.container}>
+        <button type="button" className={styles.customButton}>
           Create an Account
         </button>
-      </div> */}
+      </div>
 
       </header>
     </div>
