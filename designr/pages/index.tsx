@@ -1,16 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import '../styles/Home.module.css'
-import logo from 'designr-logo.png';
+import styles from '../styles/Home.module.css'
+import logo from '/designr-logo.png';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <header className="App-header border-gradient border-gradient-purple">
-        <img src='/designr-logo.png' className="App-logo mb-20" alt="logo" />
+        <img src='next-assets/designr-logo.png' className="App-logo mb-20" alt="logo" />
 
         <h1 className="text-3xl font-bold underline">
       Hello world!
