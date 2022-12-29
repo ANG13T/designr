@@ -12,6 +12,10 @@ export default function Home() {
       <header className="App-header border-gradient border-gradient-purple">
         <img src='/designr-logo.png' className="App-logo mb-20" alt="logo" />
 
+        <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+
         {/* <button onClick={() => goTo(Login)} type="button" className="c-button text-white bg-transparent hover:bg-white hover:text-black border border-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-10 mr-10 mb-10 mt-5">
           Log into Account
         </button>
