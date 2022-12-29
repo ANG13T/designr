@@ -57,7 +57,7 @@ body {
 
 body {
   background-color: #212328;
-  min-height: 100vh;
+  min-height: 95vh;
   font-size: calc(10px + 2vmin);
   color: white;
   --angle: 0deg;

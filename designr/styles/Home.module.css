@@ -1,8 +1,7 @@
-
-
 .logo {
   height: 20vmin;
   pointer-events: none;
+  @apply mb-10;
 }
 
 .header {
@@ -13,6 +12,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 28rem;
 }
 
 .App-link {
@@ -20,7 +20,7 @@
 }
 
 .container {
-  @apply w-full ml-10 mr-10;
+  @apply mt-10;
 }
 
 .customButton {
@@ -29,5 +29,5 @@
   padding: 15px;
   font-size: 1rem;
   transition: 0.5s;
-  @apply text-white bg-transparent hover:bg-white hover:text-black border border-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2;
+  @apply text-white bg-transparent hover:bg-white hover:text-black border border-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-10;
 }

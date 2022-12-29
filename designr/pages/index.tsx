@@ -10,12 +10,9 @@ export default function Home() {
           Log into Account
         </button>
 
-
-      <div className={styles.container}>
         <button type="button" className={styles.customButton}>
           Create an Account
         </button>
-      </div>
 
       </header>
     </div>
