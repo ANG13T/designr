@@ -105,3 +105,39 @@
     initial-value: 0deg;
     inherits: false;
   }
+
+
+  /* Main Page */
+  .main {
+
+  }
+
+  .logo-nav {
+    height: 3rem;
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem;
+    border-bottom: 1px solid white;
+  }
+
+  .main-nav .buttons {
+    display: flex;
+    width: 7rem;
+    justify-content: space-around;
+    margin-top: 6.5px;
+    /* background-color: red; */
+  }
+
+  .main-nav .buttons button {
+    color: white;
+    border: 1.5px solid white;
+    border-radius: 4px;
+    height: 2.4rem;
+    width: 2.4rem;
+    font-size: 15px;
+    background: transparent;
+    padding: 5px;
+  }

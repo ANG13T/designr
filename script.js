@@ -8,7 +8,6 @@ function setViewHome() {
 
 async function getViewHome() {
     await chrome.storage.sync.get(["viewHome"], function (result) {
-        console.log(result);
         if (result && result["viewHome"] == "true") {
             mainPage.hidden = false;
             homePage.hidden = true;
