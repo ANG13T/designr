@@ -22,7 +22,7 @@
 
   .caption {
     color: white;
-    font-size: 17px;
+    font-size: 16px;
   }
   
   .App-header {
@@ -38,6 +38,11 @@
   
   .App-link {
     color: #61dafb;
+  }
+
+  .captions {
+    text-align: left;
+    margin-left: 3.5rem;
   }
   
   
