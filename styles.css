@@ -11,8 +11,18 @@
   
   .logo {
     height: 20vmin;
-    margin-top: 5rem;
+    margin-top: 4rem;
     pointer-events: none;
+  }
+
+  .subtitle {
+    color: white;
+    font-size: 20px;
+  }
+
+  .caption {
+    color: white;
+    font-size: 17px;
   }
   
   .App-header {
@@ -55,6 +65,10 @@
     cursor: pointer;
   }
 
+  .githubButton {
+    margin-top: 1.3rem;
+  }
+
   .customButton:hover {
     background: white;
     color: black;
@@ -67,6 +81,16 @@
     border-radius: 5px;
     border-image: linear-gradient(var(--angle), #12c2e9, #c471ed, #f64f59) 1;
     animation: 5s rotate linear infinite;
+  }
+
+  .link {
+    color: white;
+    font-weight: bold;
+  }
+
+  .bottom {
+    color: white;
+    margin-top: 2rem;
   }
   
   @keyframes rotate {
