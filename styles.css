@@ -15,14 +15,10 @@
     pointer-events: none;
   }
 
-  .subtitle {
-    color: white;
-    font-size: 20px;
-  }
-
   .caption {
     color: white;
     font-size: 16px;
+    margin-bottom: 5px;
   }
   
   .App-header {
@@ -95,7 +91,7 @@
 
   .bottom {
     color: white;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
   
   @keyframes rotate {
