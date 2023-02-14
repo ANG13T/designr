@@ -2,10 +2,16 @@
     text-align: center;
     width: 25rem;
     height: 32rem;
+    background-color: #212328;
+  }
+
+  body {
+    margin: 0px;
   }
   
   .logo {
     height: 20vmin;
+    margin-top: 5rem;
     pointer-events: none;
   }
   
@@ -24,9 +30,6 @@
     color: #61dafb;
   }
   
-  .container {
-    @apply w-full ml-10 mr-10;
-  }
   
   .c-button {
     text-align: center !important;
@@ -42,7 +45,19 @@
     padding: 15px;
     font-size: 1rem;
     transition: 0.5s;
-    @apply text-white bg-transparent hover:bg-white hover:text-black border border-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2;
+    color: white;
+    border: 2px solid white;
+    outline: none;
+    background: transparent;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 2rem;
+    cursor: pointer;
+  }
+
+  .customButton:hover {
+    background: white;
+    color: black;
   }
   
   
