@@ -1,0 +1,11 @@
+{
+    "name": "designr",
+    "version": "1.0.0",
+    "description": "designr",
+    "manifest_version": 3,
+    "author": "Angelina Tsuboi",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "designr"
+    }
+}
