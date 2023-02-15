@@ -141,3 +141,16 @@
     background: transparent;
     padding: 5px;
   }
+
+  #main .table {
+    width: 100%;
+    color: white;
+    text-align: left;
+  }
+
+  #main .table-cell {
+    display: flex;
+    padding: 5px;
+    margin-left: 15px;
+    font-size: 15px;
+  }
