@@ -146,6 +146,9 @@
     width: 100%;
     color: white;
     text-align: left;
+    margin-top: 10px;
+    font-size: 13px !important;
+    margin-left: 5px;
   }
 
   #main .table-cell {
