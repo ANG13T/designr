@@ -151,9 +151,24 @@
     margin-left: 5px;
   }
 
+  #paletteTableBody tr {
+    height: 26px;
+  }
+
   #main .table-cell {
     display: flex;
     padding: 5px;
     margin-left: 15px;
     font-size: 15px;
+  }
+
+  #main .none-palette {
+    color: white;
+    font-size: 20px;
+    margin-top: 3rem;
+  }
+
+ .sub-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
   }

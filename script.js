@@ -1,6 +1,8 @@
 let startButton = document.getElementById("startButton");
 let homePage = document.getElementById("home");
 let mainPage = document.getElementById("main");
+let paletteTableNone= document.getElementById("none-palette");
+let paletteTable = document.getElementById("paletteTable");
 let paletteTableContent = document.getElementById('paletteTable').getElementsByTagName('tbody')[0];
 
 function setViewHome() {
@@ -38,6 +40,9 @@ async function retreivePalettes() {
                     </tr>
                 `;
             })
+        } else {
+            paletteTable.hidden = true;
+            paletteTableNone.hidden = false;
         }
     });
 }
@@ -62,4 +67,5 @@ startButton.addEventListener('click', function () {
     setViewHome();
     mainPage.hidden = false;
     homePage.hidden = true;
+    paletteTableNone.hidden = true;
 });
