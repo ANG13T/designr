@@ -3,6 +3,7 @@ let homePage = document.getElementById("home");
 let mainPage = document.getElementById("main");
 let paletteTableNone = document.getElementById("none-palette");
 let paletteTable = document.getElementById("paletteTable");
+let viewSettingsButton = document.getElementById("view-settings");
 let paletteTableContent = document.getElementById('paletteTable').getElementsByTagName('tbody')[0];
 
 const modal = document.getElementById("modal");
