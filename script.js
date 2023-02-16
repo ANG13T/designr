@@ -60,8 +60,9 @@ function setPalettes(palettes) {
 }
 
 const closeModal = function () {
-    modal.hidden = true;
-    overlay.hidden = true;
+    console.log(modal)
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
   };
 
 
@@ -85,6 +86,7 @@ startButton.addEventListener('click', function () {
 
 // Modal Stuff
 // close modal function
+closeModal()
 
   
   // close the modal when the close button and overlay is clicked
@@ -100,8 +102,9 @@ startButton.addEventListener('click', function () {
   
   // open modal function
   const openModal = function () {
-    modal.hidden = false;
-    overlay.hidden = false;
+    console.log("open modal")
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
   };
   // open modal event
   openModalBtn.addEventListener("click", openModal);
