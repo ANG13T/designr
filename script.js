@@ -15,6 +15,18 @@ async function getViewHome() {
     });
 }
 
+async function retreievePalettes() {
+    chrome.storage.local.get('palettes', function (result) {
+        return result.palettes;
+    });
+}
+
+function setPalettes(palettes) {
+    chrome.storage.local.set({palettes: palettes}, function () {
+
+    })
+}
+
 
 getViewHome();
 mainPage.hidden = true;
