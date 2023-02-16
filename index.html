@@ -46,10 +46,11 @@
         </div>
 
         <div id="main">
+            
             <div class="main-nav">
                 <img src='assets/logo.png' class="logo-nav" alt="logo" />
                 <div class="buttons">
-                    <button class="create">
+                    <button class="create" id="create-palette">
                         <i class="fa fa-plus"></i>
                     </button>
                     <button class="settings">
@@ -66,6 +67,26 @@
                     
                 </p>
             </div>
+
+            <section class="modal hidden" id="modal">
+                <div class="flex">
+                  <img src="https://avatars.githubusercontent.com/u/62628408?s=96&v=4" width="50px" height="50px" alt="user" />
+                  <button class="btn-close" id="btn-close">⨉</button>
+                </div>
+                <div>
+                  <h3>Stay in touch</h3>
+                  <p>
+                    This is a dummy newsletter form so don't bother trying to test it. Not
+                    that I expect you to, anyways. :)
+                  </p>
+                </div>
+              
+                <input type="email" id="email" placeholder="brendaneich@js.com" />
+                <button class="btn">Do Something</button>
+              </section>
+
+
+              <div class="overlay hidden" id="overlay"></div>
 
              <table class="table" id="paletteTable">
                 <thead class="thead-light">

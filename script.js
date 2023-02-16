@@ -5,6 +5,11 @@ let paletteTableNone = document.getElementById("none-palette");
 let paletteTable = document.getElementById("paletteTable");
 let paletteTableContent = document.getElementById('paletteTable').getElementsByTagName('tbody')[0];
 
+const modal = document.getElementById("modal");
+const overlay = document.getElementById("overlay");
+const openModalBtn = document.getElementById("create-palette");
+const closeModalBtn = document.getElementById("btn-close");
+
 function setViewHome() {
     chrome.storage.sync.set({ "viewHome": "true" }, () => console.log("done"));
 }
@@ -53,9 +58,15 @@ function setPalettes(palettes) {
     })
 }
 
+const closeModal = function () {
+    modal.hidden = true;
+    overlay.hidden = true;
+  };
+
 
 getViewHome();
 updatePaletteUI();
+closeModal();
 mainPage.hidden = true;
 homePage.hidden = false;
 
@@ -69,3 +80,27 @@ startButton.addEventListener('click', function () {
     homePage.hidden = true;
     paletteTableNone.hidden = true;
 });
+
+
+// Modal Stuff
+// close modal function
+
+  
+  // close the modal when the close button and overlay is clicked
+  closeModalBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+  
+  // close modal when the Esc key is pressed
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+  
+  // open modal function
+  const openModal = function () {
+    modal.hidden = false;
+    overlay.hidden = false;
+  };
+  // open modal event
+  openModalBtn.addEventListener("click", openModal);
