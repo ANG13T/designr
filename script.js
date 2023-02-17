@@ -1,6 +1,7 @@
 let startButton = document.getElementById("startButton");
 let homePage = document.getElementById("home");
 let mainPage = document.getElementById("main");
+let viewPalettePage = document.getElementById("view-palette");
 let paletteTableNone = document.getElementById("none-palette");
 let paletteTable = document.getElementById("paletteTable");
 let paletteNameInput = document.getElementById("paletteNameInput");
