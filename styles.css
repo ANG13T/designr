@@ -192,10 +192,15 @@
     min-height: 250px;
     position: absolute;
     z-index: 2;
-    top: 20%;
+    top: 22%;
+    left: 15%;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
+  }
+
+  .error {
+    border: 2px solid red;
   }
   
   .modal .flex {
@@ -222,21 +227,49 @@
     border: none;
     font-weight: 600;
   }
+
+  #paletteNameInput {
+    margin-bottom: 12px !important;
+    font-size: 13px;
+    outline: none;
+  }
   
   .btn {
     display: inline-block;
     padding: 0.8rem 1.4rem;
     font-weight: 700;
-    background-color: black;
+    background-color: #212328;
     color: white;
-    margin-top: 1rem;
+    margin-top: 10px;
     border-radius: 5px;
     text-align: center;
     font-size: 1em;
+    transition: 0.4s;
+  }
+
+  .btn:hover {
+    background-color: #000000;
+  }
+
+  .modal-title {
+    margin-top: 0px;
+  }
+
+  #btn-close {
+    background-color: rgb(63, 62, 62);
+    transition: 0.4s;
+  }
+
+  #btn-close:hover {
+    background-color: #343435;
   }
 
   #paletteLabel {
     text-align: left;
+    font-weight: bold;
+    color: #2e2f31;
+    margin-top: 4px;
+    font-size: 12px;
   }
   
   .btn-open {
