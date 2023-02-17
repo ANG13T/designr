@@ -183,18 +183,19 @@
 
   .modal {
     display: flex;
+    margin: auto !important;
     flex-direction: column;
     justify-content: center;
     gap: 0.4rem;
     width: 250px;
-    padding: 1.3rem;
+    padding: 1rem;
     min-height: 250px;
     position: absolute;
     z-index: 2;
     top: 20%;
     background-color: white;
     border: 1px solid #ddd;
-    border-radius: 15px;
+    border-radius: 8px;
   }
   
   .modal .flex {
@@ -228,9 +229,14 @@
     font-weight: 700;
     background-color: black;
     color: white;
+    margin-top: 1rem;
     border-radius: 5px;
     text-align: center;
     font-size: 1em;
+  }
+
+  #paletteLabel {
+    text-align: left;
   }
   
   .btn-open {
