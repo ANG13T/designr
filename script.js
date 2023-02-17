@@ -10,6 +10,7 @@ let paletteTableContent = document.getElementById('paletteTable').getElementsByT
 const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const createPaletteBtn = document.getElementById("create-palette");
+const createPaletteBtnModal = document.getElementById("create-palette-modal");
 const closeModalBtn = document.getElementById("btn-close");
 
 let palettes = [];
@@ -43,7 +44,7 @@ async function retreivePalettes() {
 }
 
 function renderPalettes(selectedPal) {
-    paletteTableContent.innerHTML = "";
+    removePaletteRows();
     selectedPal.forEach((pa) => {
         let newRow = paletteTableContent.insertRow(1);
         newRow.innerHTML = `
@@ -66,6 +67,12 @@ function setPalettes(selectedPal) {
     chrome.storage.local.set({ palettes: selectedPal }, function () {
 
     })
+}
+
+function removePaletteRows() {
+    while(paletteTableContent.lastElementChild) {
+        paletteTableContent.removeChild(paletteTableContent.lastElementChild);
+    }
 }
 
 const closeModal = function () {
@@ -129,7 +136,13 @@ const openModal = function () {
     overlay.classList.remove('hidden');
 };
 
-createPaletteBtn.addEventListener("click", () => {
+createPaletteBtnModal.addEventListener("click", () => {
     let palName = paletteNameInput.value;
+    console.log("palName", palName)
     createPalette(palName);
 });
+
+createPaletteBtn.addEventListener("click", () => {
+    openModal();
+})
+

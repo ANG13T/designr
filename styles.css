@@ -200,7 +200,7 @@
   }
 
   .error {
-    border: 2px solid red;
+    border: 1.5px solid red !important;
   }
   
   .modal .flex {
