@@ -14,6 +14,7 @@ const createPaletteBtnModal = document.getElementById("create-palette-modal");
 const closeModalBtn = document.getElementById("btn-close");
 
 let palettes = [];
+let selectedPalette = null;
 
 function setViewHome() {
     chrome.storage.sync.set({ "viewHome": "true" }, () => console.log("done"));
@@ -45,6 +46,9 @@ async function retreivePalettes() {
 
 function renderPalettes(selectedPal) {
     removePaletteRows();
+    if(selectedPal.length > 0) {
+        paletteTableNone.hidden = true;
+    }
     selectedPal.forEach((pa, index) => {
         let newRow = paletteTableContent.insertRow(index);
         newRow.innerHTML = `
@@ -56,7 +60,7 @@ function renderPalettes(selectedPal) {
                     </label>
                 </th>
                 <td>${pa.name}</td>
-                <td>${pa.createdAt}</td>
+                <td>${pa.createdDate}</td>
                 <td>${pa.elements}</td>
             </tr>
         `;
@@ -75,6 +79,10 @@ function removePaletteRows() {
     }
 }
 
+function selectPalette(palSel) {
+    selectPalette = palSel;
+}
+
 const closeModal = function () {
     console.log(modal)
     modal.classList.add('hidden');
@@ -85,7 +93,7 @@ const createPalette = function(paletteName) {
     paletteNameInput.classList.remove("error");
     if(paletteName.length > 0 && paletteName.length < 20) {
         let date = new Date();
-        let formattedDate = `${date.getMonth} / ${date.getDate()} / ${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+        let formattedDate = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
         let newPalette = {
             name: paletteName,
             elements: 0,
@@ -94,6 +102,7 @@ const createPalette = function(paletteName) {
         palettes.push(newPalette);
         setPalettes(palettes);
         renderPalettes(palettes);
+        closeModal()
     } else {
         paletteNameInput.classList.add("error");
     }
@@ -103,6 +112,7 @@ const createPalette = function(paletteName) {
 getViewHome();
 updatePaletteUI();
 closeModal();
+retreivePalettes();
 mainPage.hidden = true;
 homePage.hidden = false;
 
@@ -146,3 +156,7 @@ createPaletteBtn.addEventListener("click", () => {
     openModal();
 })
 
+document.querySelector(".listCheckbox").addEventListener((el) => {
+    console.log(el.target.parent.parent);
+    selectPalette();
+})
