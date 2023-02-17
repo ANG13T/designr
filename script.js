@@ -45,8 +45,8 @@ async function retreivePalettes() {
 
 function renderPalettes(selectedPal) {
     removePaletteRows();
-    selectedPal.forEach((pa) => {
-        let newRow = paletteTableContent.insertRow(1);
+    selectedPal.forEach((pa, index) => {
+        let newRow = paletteTableContent.insertRow(index);
         newRow.innerHTML = `
             <tr>
                 <th>
