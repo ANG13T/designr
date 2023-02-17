@@ -153,12 +153,8 @@
     text-align: left;
     margin-top: 10px;
     font-size: 13px !important;
-    margin-left: 5px;
   }
 
-  #paletteTableBody tr {
-    height: 26px;
-  }
 
   #main .table-cell {
     display: flex;
@@ -176,6 +172,30 @@
  .sub-icon {
     font-size: 50px;
     margin-bottom: 15px;
+  }
+
+  #paletteTable {
+    border-collapse:collapse;
+  }
+
+  #paletteTable tr {
+    cursor: pointer;
+    transition: 0.5s;
+    height: 34px;
+    padding-left: 10px;
+  }
+
+  #paletteTable .customcheckbox {
+    padding-left: 10px;
+  }
+
+  #paletteTable tr:hover {
+    background-color: #2e2f31;
+  }
+
+  #paletteTable .headRow:hover {
+    cursor:default;
+    background-color: transparent !important;
   }
 
 
