@@ -55,7 +55,7 @@ function renderPalettes(selectedPal) {
             <tr>
                 <th>
                     <label class="customcheckbox">
-                        <input type="checkbox" class="listCheckbox">
+                        <input type="checkbox" class="listCheckbox" style="cursor: pointer">
                         <span class="checkmark"></span>
                     </label>
                 </th>
@@ -93,7 +93,7 @@ const createPalette = function(paletteName) {
     paletteNameInput.classList.remove("error");
     if(paletteName.length > 0 && paletteName.length < 20) {
         let date = new Date();
-        let formattedDate = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+        let formattedDate = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
         let newPalette = {
             name: paletteName,
             elements: 0,
