@@ -17,6 +17,7 @@ const closeModalBtn = document.getElementById("btn-close");
 let palettes = [];
 let selectedPalette = null;
 let selectedPaletteIndex = 0;
+let viewPalette = null;
 
 function setViewHome() {
     chrome.storage.sync.set({ "viewHome": "true" }, () => console.log("done"));
@@ -37,7 +38,6 @@ async function retreivePalettes() {
     chrome.storage.local.get({ palettes: [] }, function (result) {
         let resultPal = result.palettes;
         palettes = resultPal;
-        console.log("palettes", resultPal);
 
         if (resultPal.length > 0) {
             renderPalettes(resultPal);
@@ -80,6 +80,8 @@ function renderPalettes(selectedPal) {
             reRenderCheckboxes();
         })
     })
+
+    reRenderCheckboxes()
 }
 
 function reRenderCheckboxes() {
