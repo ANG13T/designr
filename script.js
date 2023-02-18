@@ -8,6 +8,9 @@ let paletteNameInput = document.getElementById("paletteNameInput");
 let viewSettingsButton = document.getElementById("view-settings");
 let paletteTableContent = document.getElementById('paletteTable').getElementsByTagName('tbody')[0];
 
+const mainNav = document.getElementById("main-nav");
+const viewPaletteNav = document.getElementById("view-palette-nav");
+
 const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const createPaletteBtn = document.getElementById("create-palette");
@@ -31,6 +34,9 @@ async function getViewHome() {
         if (result && result["viewHome"] == "true") {
             mainPage.hidden = false;
             homePage.hidden = true;
+            mainNav.hidden = false;
+            viewPaletteNav.hidden = true;
+            viewPalettePage.hidden = true;
         }
     });
 }
@@ -82,6 +88,7 @@ function renderPalettes(selectedPal) {
 
     document.querySelectorAll(".paletteTableRowBody").forEach((tabBody) => {
         tabBody.addEventListener("click", (el) => {
+            console.log("clicked!")
             let index = Number(el.srcElement.classList[1].split('-')[1]);
             viewPalette = palettes[index];
             viewPaletteIndex = index;
@@ -93,7 +100,10 @@ function renderPalettes(selectedPal) {
 }
 
 function renderViewPalettePage() {
-
+    mainPage.hidden = true;
+    viewPalettePage.hidden = false;
+    mainNav.hidden = true;
+    viewPaletteNav.hidden = false;
 }
 
 function reRenderCheckboxes() {
@@ -167,6 +177,7 @@ closeModal();
 retreivePalettes();
 mainPage.hidden = true;
 homePage.hidden = false;
+viewPalettePage.hidden = true;
 
 async function updatePaletteUI() {
     await retreivePalettes();
