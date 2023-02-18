@@ -16,6 +16,7 @@ const closeModalBtn = document.getElementById("btn-close");
 
 let palettes = [];
 let selectedPalette = null;
+let selectedPaletteIndex = 0;
 
 function setViewHome() {
     chrome.storage.sync.set({ "viewHome": "true" }, () => console.log("done"));
@@ -68,13 +69,28 @@ function renderPalettes(selectedPal) {
             </tr>
         `;
     });
-    document.querySelector(".listCheckbox").addEventListener("click", (el) => {
-        let index = Number(el.srcElement.classList[1].split('-')[1]);
-        console.log(index);
-        selectPalette = palettes[index];
-        console.log(selectPalette);
-        // console.log(el.target.parent.parent);
-        // selectPalette();
+
+    document.querySelectorAll(".listCheckbox").forEach((checkListBox) => {
+        checkListBox.addEventListener("click", (el) => {
+            let index = Number(el.srcElement.classList[1].split('-')[1]);
+            console.log(index);
+            selectPalette = palettes[index];
+            selectedPaletteIndex = index;
+            console.log(selectPalette);
+            reRenderCheckboxes();
+        })
+    })
+}
+
+function reRenderCheckboxes() {
+    let checkboxes = document.querySelectorAll(".listCheckbox");
+    console.log(checkboxes)
+    checkboxes.forEach((checkbox, i) => {
+        if(i == selectedPaletteIndex) {
+            checkbox.checked = true;
+        } else {
+            checkbox.checked = false;
+        }
     })
 }
 
@@ -101,15 +117,14 @@ const closeModal = function () {
 };
 
 function dateString() {
-    let unix_ts = Date.now();
-    var a = new Date(unix_ts * 1000);
+    var a = new Date();
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var year = a.getFullYear();
     var month = months[a.getMonth()];
     var date = a.getDate();
     var hour = a.getHours();
     var min = a.getMinutes();
-    var time = month + '/' + date + '/' + year + ' ' + hour + ':' + min;
+    var time = month + ' ' + date + ' ' + year + ' ' + hour + ':' + min;
     return time;
 }
 
