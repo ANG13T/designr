@@ -18,6 +18,7 @@ let palettes = [];
 let selectedPalette = null;
 let selectedPaletteIndex = 0;
 let viewPalette = null;
+let viewPaletteIndex = null;
 
 function setViewHome() {
     chrome.storage.sync.set({ "viewHome": "true" }, () => console.log("done"));
@@ -63,9 +64,9 @@ function renderPalettes(selectedPal) {
                         <span class="checkmark"></span>
                     </label>
                 </th>
-                <td>${pa.name}</td>
-                <td>${pa.createdDate}</td>
-                <td>${pa.elements}</td>
+                <td className="paletteTableRowBody index-${index}">${pa.name}</td>
+                <td className="paletteTableRowBody index-${index}">${pa.createdDate}</td>
+                <td className="paletteTableRowBody index-${index}">${pa.elements}</td>
             </tr>
         `;
     });
@@ -73,15 +74,26 @@ function renderPalettes(selectedPal) {
     document.querySelectorAll(".listCheckbox").forEach((checkListBox) => {
         checkListBox.addEventListener("click", (el) => {
             let index = Number(el.srcElement.classList[1].split('-')[1]);
-            console.log(index);
             selectPalette = palettes[index];
             selectedPaletteIndex = index;
-            console.log(selectPalette);
             reRenderCheckboxes();
         })
     })
 
+    document.querySelectorAll(".paletteTableRowBody").forEach((tabBody) => {
+        tabBody.addEventListener("click", (el) => {
+            let index = Number(el.srcElement.classList[1].split('-')[1]);
+            viewPalette = palettes[index];
+            viewPaletteIndex = index;
+            renderViewPalettePage();
+        })
+    })
+
     reRenderCheckboxes()
+}
+
+function renderViewPalettePage() {
+
 }
 
 function reRenderCheckboxes() {
