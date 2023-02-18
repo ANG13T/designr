@@ -21,6 +21,8 @@ function setViewHome() {
     chrome.storage.sync.set({ "viewHome": "true" }, () => console.log("done"));
 }
 
+// TODO: init view palette stuff
+
 async function getViewHome() {
     await chrome.storage.sync.get(["viewHome"], function (result) {
         if (result && result["viewHome"] == "true") {
@@ -47,7 +49,7 @@ async function retreivePalettes() {
 
 function renderPalettes(selectedPal) {
     removePaletteRows();
-    if(selectedPal.length > 0) {
+    if (selectedPal.length > 0) {
         paletteTableNone.hidden = true;
     }
     selectedPal.forEach((pa, index) => {
@@ -56,7 +58,7 @@ function renderPalettes(selectedPal) {
             <tr>
                 <th>
                     <label class="customcheckbox">
-                        <input type="checkbox" class="listCheckbox" style="cursor: pointer">
+                        <input type="checkbox" class="listCheckbox index-${index}" style="cursor: pointer">
                         <span class="checkmark"></span>
                     </label>
                 </th>
@@ -65,6 +67,14 @@ function renderPalettes(selectedPal) {
                 <td>${pa.elements}</td>
             </tr>
         `;
+    });
+    document.querySelector(".listCheckbox").addEventListener("click", (el) => {
+        let index = Number(el.srcElement.classList[1].split('-')[1]);
+        console.log(index);
+        selectPalette = palettes[index];
+        console.log(selectPalette);
+        // console.log(el.target.parent.parent);
+        // selectPalette();
     })
 }
 
@@ -75,7 +85,7 @@ function setPalettes(selectedPal) {
 }
 
 function removePaletteRows() {
-    while(paletteTableContent.lastElementChild) {
+    while (paletteTableContent.lastElementChild) {
         paletteTableContent.removeChild(paletteTableContent.lastElementChild);
     }
 }
@@ -90,11 +100,23 @@ const closeModal = function () {
     overlay.classList.add('hidden');
 };
 
-const createPalette = function(paletteName) {
+function dateString() {
+    let unix_ts = Date.now();
+    var a = new Date(unix_ts * 1000);
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var time = month + '/' + date + '/' + year + ' ' + hour + ':' + min;
+    return time;
+}
+
+const createPalette = function (paletteName) {
     paletteNameInput.classList.remove("error");
-    if(paletteName.length > 0 && paletteName.length < 20) {
-        let date = new Date();
-        let formattedDate = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
+    if (paletteName.length > 0 && paletteName.length < 20) {
+        let formattedDate = dateString();
         let newPalette = {
             name: paletteName,
             elements: 0,
@@ -157,7 +179,3 @@ createPaletteBtn.addEventListener("click", () => {
     openModal();
 })
 
-document.querySelector(".listCheckbox").addEventListener((el) => {
-    console.log(el.target.parent.parent);
-    selectPalette();
-})
