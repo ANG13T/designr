@@ -336,3 +336,26 @@
     align-items: center;
     margin-top: 6.5px;
   }
+
+  /* Elements View Display */
+
+  #select-element-button {
+    display: inline-block;
+    padding: 0.8rem 1.4rem;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    font-weight: 700;
+    background-color: #212328;
+    border: 2px solid white;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+    transition: 0.4s;
+  }
+
+  #select-element-button:hover {
+    color: #343435;
+    background-color: white;
+  }
