@@ -69,7 +69,7 @@ function renderPalettes(selectedPal) {
                         <span class="checkmark"></span>
                     </label>
                 </th>
-                <td class="paletteTableRowBody index-${index}">${pa.name}</td>
+                <td class="paletteTableRowBody index-${index}">${truncateName(pa.name)}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.createdDate}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.elements}</td>
             </tr>
@@ -121,6 +121,14 @@ function setPalettes(selectedPal) {
     })
 }
 
+function truncateName(name) {
+    if(name.length > 14) {
+        return name.substring(0, 14).concat("...")
+    } else {
+        return name;
+    }
+}
+
 function removePaletteRows() {
     while (paletteTableContent.lastElementChild) {
         paletteTableContent.removeChild(paletteTableContent.lastElementChild);
@@ -168,11 +176,6 @@ const createPalette = function (paletteName) {
 }
 
 
-paletteBackButton.addEventListener("click", () => {
-    mainPage.hidden = false;
-    viewPalettePage.hidden = true;
-})
-
 getViewHome();
 updatePaletteUI();
 closeModal();
@@ -184,13 +187,6 @@ viewPalettePage.hidden = true;
 async function updatePaletteUI() {
     await retreivePalettes();
 }
-
-startButton.addEventListener('click', function () {
-    setViewHome();
-    mainPage.hidden = false;
-    homePage.hidden = true;
-    paletteTableNone.hidden = true;
-});
 
 
 closeModal()
@@ -221,3 +217,16 @@ createPaletteBtn.addEventListener("click", () => {
     openModal();
 })
 
+
+startButton.addEventListener('click', function () {
+    setViewHome();
+    mainPage.hidden = false;
+    homePage.hidden = true;
+    paletteTableNone.hidden = true;
+});
+
+
+paletteBackButton.addEventListener("click", () => {
+    mainPage.hidden = false;
+    viewPalettePage.hidden = true;
+})
