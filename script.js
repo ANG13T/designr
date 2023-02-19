@@ -29,6 +29,8 @@ const deleteModalConfirmButton = document.getElementById("delete-palette-modal")
 const deleteCloseModalButton = document.getElementById("btn-close-delete");
 const deleteOverlay = document.getElementById("delete-overlay");
 
+let paletteTableElementNone = document.getElementById("none-palette-element");
+
 let palettes = [];
 let selectedPalette = null;
 let selectedPaletteIndex = 0;

@@ -359,3 +359,9 @@
     color: #343435;
     background-color: white;
   }
+
+  #view-palette .none-palette-element {
+    color: white;
+    font-size: 20px;
+    margin-top: 5rem;
+  }
