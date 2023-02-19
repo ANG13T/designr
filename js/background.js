@@ -14,7 +14,18 @@ var cssCiewerContextMenusParent  = null;
 /*
 * Inject cssviewer.js/cssviewer.css into the current page
 */
-console.log("hello world")
+
+
+var port = chrome.runtime.connect({
+	name: "Trigger"
+});
+
+port.onMessage.addListener(function(msg) {
+	console.log("message recieved" + msg);
+	if(msg == "initiateView") {
+		iniateElementSelect();
+	}
+});
 
 function iniateElementSelect() {
 	console.log("click")

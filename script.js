@@ -30,6 +30,7 @@ const deleteCloseModalButton = document.getElementById("btn-close-delete");
 const deleteOverlay = document.getElementById("delete-overlay");
 
 let paletteTableElementNone = document.getElementById("none-palette-element");
+let selectElementButton = document.getElementById("select-element-button");
 
 let palettes = [];
 let selectedPalette = null;
@@ -311,6 +312,13 @@ deleteCloseModalButton.addEventListener("click", () => {
 
 deleteModalConfirmButton.addEventListener("click", () => {
     deletePalette();
+})
+
+selectElementButton.addEventListener("click", () => {
+    var port = chrome.runtime.connect({
+        name: "Trigger"
+   });
+   port.postMessage("initiateView");
 })
 
 // Start of Context Code
