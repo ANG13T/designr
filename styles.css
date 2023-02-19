@@ -121,14 +121,14 @@
     height: 3rem;
   }
 
-  .main-nav {
+  .nav {
     display: flex;
     justify-content: space-between;
     padding: 1.2rem;
     border-bottom: 1px solid white;
   }
 
-  .main-nav .buttons {
+  .nav .buttons {
     display: flex;
     width: 7rem;
     justify-content: space-around;
@@ -136,7 +136,7 @@
     /* background-color: red; */
   }
 
-  .main-nav .buttons button {
+  .nav .buttons button {
     color: white;
     border: 1.5px solid white;
     border-radius: 4px;
