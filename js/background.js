@@ -14,8 +14,10 @@ var cssCiewerContextMenusParent  = null;
 /*
 * Inject cssviewer.js/cssviewer.css into the current page
 */
-chrome.action.onClicked.addListener(function(tab)
-{
+console.log("hello world")
+
+function iniateElementSelect() {
+	console.log("click")
 	if( tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
 	{
 		console.log( "CSSViewer doesn't work on Google Chrome webstore!" );
@@ -25,6 +27,7 @@ chrome.action.onClicked.addListener(function(tab)
 
 	if( ! cssViewerLoaded ) 
 	{
+		console.log("loading contexts")
 		cssCiewerContextMenusParent  = chrome.contextMenus.create( { "title" : "CSSViewer console", contexts:["all"] } );
 
 		chrome.contextMenus.create( { "title": "element"                    , contexts:["all"] , "parentId": cssCiewerContextMenusParent, "onclick": cssCiewerDebugEl } );
@@ -41,7 +44,7 @@ chrome.action.onClicked.addListener(function(tab)
 	chrome.tabs.insertCSS(tab.id, {file:'css/cssviewer.css'});
 
 	cssViewerLoaded = true;
-});
+}
 
 function cssCiewerDebugEl( info, tab )
 {

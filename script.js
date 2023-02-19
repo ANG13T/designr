@@ -310,3 +310,7 @@ deleteCloseModalButton.addEventListener("click", () => {
 deleteModalConfirmButton.addEventListener("click", () => {
     deletePalette();
 })
+
+// Start of Context Code
+
+
