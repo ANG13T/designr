@@ -69,7 +69,7 @@ function renderPalettes(selectedPal) {
                         <span class="checkmark"></span>
                     </label>
                 </th>
-                <td class="paletteTableRowBody index-${index}">${truncateName(pa.name)}</td>
+                <td class="paletteTableRowBody index-${index}">${pa.name}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.createdDate}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.elements}</td>
             </tr>
@@ -121,13 +121,6 @@ function setPalettes(selectedPal) {
     })
 }
 
-function truncateName(name) {
-    if(name.length > 14) {
-        return name.substring(0, 14).concat("...")
-    } else {
-        return name;
-    }
-}
 
 function removePaletteRows() {
     while (paletteTableContent.lastElementChild) {
@@ -159,7 +152,7 @@ function dateString() {
 
 const createPalette = function (paletteName) {
     paletteNameInput.classList.remove("error");
-    if (paletteName.length > 0 && paletteName.length < 20) {
+    if (paletteName.length > 0 && paletteName.length < 15) {
         let formattedDate = dateString();
         let newPalette = {
             name: paletteName,
