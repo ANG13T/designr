@@ -41,7 +41,7 @@
     margin-left: 3.5rem;
   }
   
-  #view-settings:hover, #create-palette:hover, #back-palette-button:hover, #edit-palette-button:hover {
+  #view-settings:hover, #create-palette:hover, #back-palette-button:hover, #edit-palette-button:hover, #delete-palette-button:hover {
     background-color: white;
     color: black;
     transition: 0.5s;
