@@ -1,6 +1,7 @@
 let startButton = document.getElementById("startButton");
 let homePage = document.getElementById("home");
 let mainPage = document.getElementById("main");
+let paletteBackButton = document.getElementById("back-palette-button");
 let viewPalettePage = document.getElementById("view-palette");
 let paletteTableNone = document.getElementById("none-palette");
 let paletteTable = document.getElementById("paletteTable");
@@ -14,6 +15,8 @@ const overlay = document.getElementById("overlay");
 const createPaletteBtn = document.getElementById("create-palette");
 const createPaletteBtnModal = document.getElementById("create-palette-modal");
 const closeModalBtn = document.getElementById("btn-close");
+
+
 
 let palettes = [];
 let selectedPalette = null;
@@ -164,6 +167,11 @@ const createPalette = function (paletteName) {
     }
 }
 
+
+paletteBackButton.addEventListener("click", () => {
+    mainPage.hidden = false;
+    viewPalettePage.hidden = true;
+})
 
 getViewHome();
 updatePaletteUI();
