@@ -217,6 +217,17 @@ const editPalette = function (paletteName) {
 }
 
 
+const deletePalette = function () {
+    palettes = palettes.filter(function( pal ) {
+        return pal.name !== viewPalette.name && pal.createdDate !== viewPalette.createdDate;
+    });
+    closeDeleteModal();
+    viewPalettePage.hidden = true;
+    mainPage.hidden = false;
+    setPalettes(palettes);
+    retreivePalettes();
+}
+
 
 getViewHome();
 updatePaletteUI();
@@ -294,4 +305,8 @@ openDeleteModalButton.addEventListener("click", () => {
 
 deleteCloseModalButton.addEventListener("click", () => {
     closeDeleteModal();
+})
+
+deleteModalConfirmButton.addEventListener("click", () => {
+    deletePalette();
 })
