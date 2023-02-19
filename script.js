@@ -17,6 +17,9 @@ const createPaletteBtnModal = document.getElementById("create-palette-modal");
 const closeModalBtn = document.getElementById("btn-close");
 
 const editModal = document.getElementById("edit-modal");
+const editCloseModalButton = document.getElementById("btn-close-edit");
+const editPaletteTextInput = document.getElementById("paletteNameEditInput");
+let editPaletteButton = document.getElementById("edit-palette-button");
 const editOverlay = document.getElementById("edit-overlay");
 
 
@@ -95,6 +98,7 @@ function renderPalettes(selectedPal) {
             viewPaletteIndex = index;
             paletteTitle.innerText = viewPalette.name;
             renderViewPalettePage();
+            closeEditModal();
         })
     })
 
@@ -131,6 +135,17 @@ function removePaletteRows() {
     }
 }
 
+function openEditModal() {
+    editPaletteTextInput.value = viewPalette.name;
+    editModal.classList.remove('hidden');
+    editOverlay.classList.remove('hidden');
+}
+
+const closeEditModal = function () {
+    editModal.classList.add('hidden');
+    editOverlay.classList.add('hidden');
+}
+
 function selectPalette(palSel) {
     selectPalette = palSel;
 }
@@ -140,6 +155,8 @@ const closeModal = function () {
     modal.classList.add('hidden');
     overlay.classList.add('hidden');
 };
+
+
 
 function dateString() {
     var a = new Date();
@@ -179,7 +196,7 @@ retreivePalettes();
 mainPage.hidden = true;
 homePage.hidden = false;
 viewPalettePage.hidden = true;
-editModal.hidden = true;
+closeEditModal()
 
 async function updatePaletteUI() {
     await retreivePalettes();
@@ -226,4 +243,12 @@ startButton.addEventListener('click', function () {
 paletteBackButton.addEventListener("click", () => {
     mainPage.hidden = false;
     viewPalettePage.hidden = true;
+})
+
+editPaletteButton.addEventListener("click", () => {
+    openEditModal();
+})
+
+editCloseModalButton.addEventListener("click", () => {
+    closeEditModal();
 })
