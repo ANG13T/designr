@@ -9,6 +9,8 @@
         "default_title": "designr"
     },
     "permissions": [
-        "storage"
-    ]
+        "storage",
+        "contextMenus"
+    ],
+    "background": { "page":"background.html" }
 }
