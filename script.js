@@ -20,6 +20,7 @@ const editModal = document.getElementById("edit-modal");
 const editCloseModalButton = document.getElementById("btn-close-edit");
 const editPaletteTextInput = document.getElementById("paletteNameEditInput");
 let editPaletteButton = document.getElementById("edit-palette-button");
+let confirmEditPaletteButton = document.getElementById("edit-palette-modal");
 const editOverlay = document.getElementById("edit-overlay");
 
 
@@ -189,6 +190,19 @@ const createPalette = function (paletteName) {
 }
 
 
+const editPalette = function (paletteName) {
+    editPaletteTextInput.classList.remove("error");
+    if (paletteName.length > 0 && paletteName.length < 15) {
+        viewPalette.name = paletteName;
+        paletteTitle.innerText = paletteName;
+        closeEditModal()
+    } else {
+        editPaletteTextInput.classList.add("error");
+    }
+}
+
+
+
 getViewHome();
 updatePaletteUI();
 closeModal();
@@ -251,4 +265,8 @@ editPaletteButton.addEventListener("click", () => {
 
 editCloseModalButton.addEventListener("click", () => {
     closeEditModal();
+})
+
+confirmEditPaletteButton.addEventListener("click", () => {
+    editPalette(editPaletteTextInput.value)
 })
