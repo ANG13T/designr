@@ -70,9 +70,9 @@ function renderPalettes(selectedPal) {
                         <span class="checkmark"></span>
                     </label>
                 </th>
-                <td className="paletteTableRowBody index-${index}">${pa.name}</td>
-                <td className="paletteTableRowBody index-${index}">${pa.createdDate}</td>
-                <td className="paletteTableRowBody index-${index}">${pa.elements}</td>
+                <td class="paletteTableRowBody index-${index}">${pa.name}</td>
+                <td class="paletteTableRowBody index-${index}">${pa.createdDate}</td>
+                <td class="paletteTableRowBody index-${index}">${pa.elements}</td>
             </tr>
         `;
     });
