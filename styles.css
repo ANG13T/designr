@@ -136,7 +136,7 @@
     /* background-color: red; */
   }
 
-  .nav .buttons button {
+  .nav .buttons button, .nav .back-button {
     color: white;
     border: 1.5px solid white;
     border-radius: 4px;
@@ -319,4 +319,20 @@
   
   .hidden {
     display: none;
+  }
+
+  #view-palette .palette-title{
+    color: white;
+    text-align: left;
+    margin-left: 13px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  #view-palette .front-section {
+    display: flex;
+    align-items: center;
+    margin-top: 6.5px;
   }

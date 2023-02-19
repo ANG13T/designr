@@ -5,6 +5,7 @@ let viewPalettePage = document.getElementById("view-palette");
 let paletteTableNone = document.getElementById("none-palette");
 let paletteTable = document.getElementById("paletteTable");
 let paletteNameInput = document.getElementById("paletteNameInput");
+let paletteTitle = document.getElementById("palette-title");
 let viewSettingsButton = document.getElementById("view-settings");
 let paletteTableContent = document.getElementById('paletteTable').getElementsByTagName('tbody')[0];
 
@@ -83,10 +84,10 @@ function renderPalettes(selectedPal) {
 
     document.querySelectorAll(".paletteTableRowBody").forEach((tabBody) => {
         tabBody.addEventListener("click", (el) => {
-            console.log("clicked!")
             let index = Number(el.srcElement.classList[1].split('-')[1]);
             viewPalette = palettes[index];
             viewPaletteIndex = index;
+            paletteTitle.innerText = viewPalette.name;
             renderViewPalettePage();
         })
     })
