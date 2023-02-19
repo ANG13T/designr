@@ -11,7 +11,6 @@
 var cssViewerLoaded              = false; 
 var cssCiewerContextMenusParent  = null;
 
-
 /*
 * Inject cssviewer.js/cssviewer.css into the current page
 */
