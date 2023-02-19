@@ -18,7 +18,7 @@ chrome.action.onClicked.addListener(function(tab)
 {
 	if( tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
 	{
-		alert( "CSSViewer doesn't work on Google Chrome webstore!" );
+		console.log( "CSSViewer doesn't work on Google Chrome webstore!" );
 
 		return;
 	}
