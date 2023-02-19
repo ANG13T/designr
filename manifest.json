@@ -13,6 +13,5 @@
         "tabs",
 		"contextMenus"
     ],
-    "action": {},
     "background": { "service_worker":"js/background.js" }
 }
