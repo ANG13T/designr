@@ -16,6 +16,9 @@ const createPaletteBtn = document.getElementById("create-palette");
 const createPaletteBtnModal = document.getElementById("create-palette-modal");
 const closeModalBtn = document.getElementById("btn-close");
 
+const editModal = document.getElementById("edit-modal");
+const editOverlay = document.getElementById("edit-overlay");
+
 
 
 let palettes = [];
@@ -176,6 +179,7 @@ retreivePalettes();
 mainPage.hidden = true;
 homePage.hidden = false;
 viewPalettePage.hidden = true;
+editModal.hidden = true;
 
 async function updatePaletteUI() {
     await retreivePalettes();
