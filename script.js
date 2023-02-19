@@ -23,8 +23,6 @@ let editPaletteButton = document.getElementById("edit-palette-button");
 let confirmEditPaletteButton = document.getElementById("edit-palette-modal");
 const editOverlay = document.getElementById("edit-overlay");
 
-
-
 let palettes = [];
 let selectedPalette = null;
 let selectedPaletteIndex = 0;
@@ -34,8 +32,6 @@ let viewPaletteIndex = null;
 function setViewHome() {
     chrome.storage.sync.set({ "viewHome": "true" }, () => console.log("done"));
 }
-
-// TODO: init view palette stuff
 
 async function getViewHome() {
     await chrome.storage.sync.get(["viewHome"], function (result) {
@@ -195,6 +191,8 @@ const editPalette = function (paletteName) {
     if (paletteName.length > 0 && paletteName.length < 15) {
         viewPalette.name = paletteName;
         paletteTitle.innerText = paletteName;
+        palettes[viewPaletteIndex] = viewPalette;
+        setPalettes(palettes);
         closeEditModal()
     } else {
         editPaletteTextInput.classList.add("error");

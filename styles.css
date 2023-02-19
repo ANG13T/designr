@@ -275,12 +275,12 @@
     margin-top: 0px;
   }
 
-  #btn-close {
+  .btn-close-modal {
     background-color: rgb(63, 62, 62);
     transition: 0.4s;
   }
 
-  #btn-close:hover {
+  .btn-close-modal:hover {
     background-color: #343435;
   }
 
