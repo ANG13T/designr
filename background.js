@@ -11,17 +11,11 @@
 var cssViewerLoaded              = false; 
 var cssCiewerContextMenusParent  = null;
 
-// Check whether new version is installed
-chrome.runtime.onInstalled.addListener(function(details){
-	if(details.reason == "install" || details.reason == "update" ){
-		chrome.tabs.create( {url: "option.html"} );
-	}
-});
 
 /*
 * Inject cssviewer.js/cssviewer.css into the current page
 */
-chrome.browserAction.onClicked.addListener(function(tab)
+chrome.action.onClicked.addListener(function(tab)
 {
 	if( tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
 	{

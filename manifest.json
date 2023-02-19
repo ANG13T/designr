@@ -12,5 +12,6 @@
         "storage",
         "contextMenus"
     ],
-    "background": { "page":"background.html" }
+    "action": {},
+    "background": { "service_worker":"background.js" }
 }
