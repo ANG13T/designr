@@ -315,10 +315,11 @@ deleteModalConfirmButton.addEventListener("click", () => {
 })
 
 selectElementButton.addEventListener("click", () => {
-    var port = chrome.runtime.connect({
-        name: "Trigger"
-   });
-   port.postMessage("initiateView");
+    // chrome.runtime.sendMessage("initiateView");
+    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+        console.log(request, sender, sendResponse);
+        sendResponse("send this："+JSON.stringify("request"));
+        });
 })
 
 // Start of Context Code

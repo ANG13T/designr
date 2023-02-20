@@ -15,17 +15,21 @@ var cssCiewerContextMenusParent  = null;
 * Inject cssviewer.js/cssviewer.css into the current page
 */
 
+// chrome.runtime.onConnect.addListener(port => {
+// 	port.onMessage.addListener(msg => {
+// 		console.log("message recieved" + msg);
+// 		if(msg == "initiateView") {
+// 			iniateElementSelect();
+// 		}
+// 	});
+//   });
 
-var port = chrome.runtime.connect({
-	name: "Trigger"
-});
+chrome.tabs.query({active: true, currentWindow: true},function(tabs) {
+	chrome.tabs.sendMessage(tabs[0].id, {greeting: "ello"}, function(response) {
+	console.log(response);
+	});
+	});
 
-port.onMessage.addListener(function(msg) {
-	console.log("message recieved" + msg);
-	if(msg == "initiateView") {
-		iniateElementSelect();
-	}
-});
 
 function iniateElementSelect() {
 	console.log("click")

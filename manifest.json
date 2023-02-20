@@ -1,17 +1,21 @@
 {
     "name": "designr",
     "version": "1.0.0",
-    "description": "designr",
-    "manifest_version": 3,
-    "author": "Angelina Tsuboi",
-    "action":{
-        "default_popup": "index.html",
-        "default_title": "designr"
+    "description": "Save snapshots of web components and designs made for web designers and developers",
+    "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["js/background.js"]
+      }
+    ],
+    "browser_action": {
+      "default_title": "designr",
+      "default_popup": "index.html"
     },
+    "manifest_version": 2,
     "permissions": [
         "storage",
         "tabs",
 		"contextMenus"
-    ],
-    "background": { "service_worker":"js/background.js" }
-}
+    ]
+  }
