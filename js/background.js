@@ -24,6 +24,13 @@ var cssCiewerContextMenusParent  = null;
 // 	});
 //   });
 
+chrome.runtime.onConnect.addListener(function(port) {
+	port.onMessage.addListener(function(msg) {
+	  console.log("msg is ", msg)
+	});
+  });
+  
+
 chrome.tabs.query({active: true, currentWindow: true},function(tabs) {
 	chrome.tabs.sendMessage(tabs[0].id, {greeting: "ello"}, function(response) {
 	console.log(response);

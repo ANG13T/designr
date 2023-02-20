@@ -316,10 +316,15 @@ deleteModalConfirmButton.addEventListener("click", () => {
 
 selectElementButton.addEventListener("click", () => {
     // chrome.runtime.sendMessage("initiateView");
-    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
-        console.log(request, sender, sendResponse);
-        sendResponse("send this："+JSON.stringify("request"));
-        });
+    // console.log(chrome.tabs, chrome.tabs.query({active: true, lastFocusedWindow: true}))
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, function([tab]) {
+        if(tab) {
+            console.log("tab", tab)
+            chrome.tabs.sendMessage(tab.id, {message: "hi"});
+        } else {
+            console.log("designr cannot work on this page")
+        }
+    })
 })
 
 // Start of Context Code
