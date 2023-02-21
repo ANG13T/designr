@@ -315,8 +315,6 @@ deleteModalConfirmButton.addEventListener("click", () => {
 })
 
 selectElementButton.addEventListener("click", () => {
-    // chrome.runtime.sendMessage("initiateView");
-    // console.log(chrome.tabs, chrome.tabs.query({active: true, lastFocusedWindow: true}))
     chrome.tabs.query({active: true, lastFocusedWindow: true}, function([tab]) {
         if(tab) {
             console.log("tab", tab)
