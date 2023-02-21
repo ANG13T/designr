@@ -15,14 +15,13 @@ var cssCiewerContextMenusParent  = null;
 * Inject cssviewer.js/cssviewer.css into the current page
 */
 
-chrome.runtime.onConnect.addListener(port => {
-	port.onMessage.addListener(msg => {
-		console.log("message recieved" + msg);
-		if(msg == "initiateView") {
-			iniateElementSelect();
-		}
-	});
-  });
+
+function updateBg(request, sender, sendResponse) {
+  console.log(request, request.message)
+}
+
+console.log("hi")
+chrome.runtime.onMessage.addListener(updateBg);
 
 function iniateElementSelect() {
 	console.log("click")

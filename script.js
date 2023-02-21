@@ -315,14 +315,14 @@ deleteModalConfirmButton.addEventListener("click", () => {
 })
 
 selectElementButton.addEventListener("click", () => {
-    chrome.tabs.query({active: true, lastFocusedWindow: true}, function([tab]) {
-        if(tab) {
-            console.log("tab", tab)
-            chrome.tabs.sendMessage(tab.id, {message: "hi"});
-        } else {
-            console.log("designr cannot work on this page")
-        }
-    })
+    chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    }, function(tabs) {
+        var tabURL = tabs[0].url;
+        chrome.tabs.sendMessage(tabs[0].id, {message: "hello"});
+        console.log(tabURL);
+    });
 })
 
 // Start of Context Code
