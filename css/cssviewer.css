@@ -65,14 +65,15 @@ span.CSSViewer_property,
 
 #CSSViewer_block ul
 {
-	padding:5px 5px 10px 5px !important;
+	padding:0px !important;
+	padding-bottom: 10px !important;
 	list-style:none !important;
 	width:282px !important;
 }
 
 #CSSViewer_block li
 {
-	padding-left:5px !important; 
+	padding-left:0px !important; 
 }
 
 

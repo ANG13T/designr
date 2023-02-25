@@ -902,40 +902,6 @@ CSSViewer.prototype.Disable = function()
 }
 
 /*
-* Freeze CSSViewer
-*/
-CSSViewer.prototype.Freeze = function()
-{
-	var document = GetCurrentDocument();
-	var block = document.getElementById('CSSViewer_block');
-	if ( block && this.haveEventListeners ) {
-		this.RemoveEventListeners();
-
-		return true;
-	}
-
-	return false;
-}
-
-/*
-* Unfreeze CSSViewer
-*/
-CSSViewer.prototype.Unfreeze = function()
-{
-	var document = GetCurrentDocument();
-	var block = document.getElementById('CSSViewer_block');
-	if ( block && !this.haveEventListeners ) {
-		// Remove the red outline
-		CSSViewer_current_element.style.outline = '';
-		this.AddEventListeners();
-
-		return true;
-	}
-
-	return false;
-}
-
-/*
 * Display the notification message
 */
 function cssViewerInsertMessage( msg )
@@ -999,16 +965,6 @@ function CssViewerKeyMap(e) {
 	
 	if( e.altKey || e.ctrlKey )
 		return;
-
-	// f: Freeze or Unfreeze the css viewer if the cssViewer is enabled
-	if ( e.keyCode === 70 ){
-		if ( cssViewer.haveEventListeners ){
-			cssViewer.Freeze();
-		}
-		else {
-			cssViewer.Unfreeze();
-		}
-	}
 
 	// c: Show code css for selected element. 
 	// window.prompt should suffice for now.
