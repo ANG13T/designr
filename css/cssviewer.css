@@ -25,7 +25,7 @@ span.CSSViewer_property,
 #CSSViewer_block
 {
 	display:none;
-	min-width:332px !important;
+	min-width:300px !important;
 	font-size:10px !important;
 	color:#555 !important;
 	position:absolute !important;
@@ -41,8 +41,8 @@ span.CSSViewer_property,
 
 #CSSViewer_footer
 {
-	padding-top:5px;
-	color:#555 !important;
+	padding-top:10px;
+	color: rgb(176, 195, 211) !important;
 	text-align:center !important;
 	width:332px !important;
 	height:30px !important;
@@ -57,7 +57,7 @@ span.CSSViewer_property,
 #CSSViewer_block h2
 {
 	padding-top:6px !important;
-	color:#6a8e46 !important;
+	color:#63a3eb !important;
 	font-size:12px !important;
 	text-align:left !important;
 	letter-spacing:-0.5px !important;
@@ -68,18 +68,19 @@ span.CSSViewer_property,
 	padding:0px !important;
 	padding-bottom: 10px !important;
 	list-style:none !important;
-	width:282px !important;
+	width:250px !important;
 }
 
 #CSSViewer_block li
 {
 	padding-left:0px !important; 
+	color:#b6b6b6 !important;
 }
 
 
 #CSSViewer_block span.CSSViewer_property
 {
-	color:#888 !important;
+	color: white !important;
 	float:left !important;
 	width:100px !important; 
 	display:block !important; 

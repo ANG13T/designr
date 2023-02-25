@@ -1,26 +1,3 @@
-/*!
-* CSSViewer, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
-*
-* https://github.com/miled/cssviewer
-* https://chrome.google.com/webstore/detail/cssviewer/ggfgijbpiheegefliciemofobhmofgce
-*
-* Copyright (c) 2006, 2008 Nicolas Huon 
-*
-* This source code is licensed under the GNU General Public License,
-* Version 2. See the file COPYING for more details.
-*/
-
-// Roadmap/ToDos
-//    1. Make the initial code more readable 
-//    2. Comment the initial code
-//    3. Fix issues if any
-//    4. Add new features (feasible and useful ones)
-//    5. Make a new branch and start re-factoring the entire code
-
-/*
-** Globals
-*/
-
 var CSSViewer_element
 
 var CSSViewer_element_cssDefinition
@@ -30,6 +7,12 @@ var CSSViewer_container
 var CSSViewer_current_element
 
 // CSS Properties
+
+var CSSViewer_pGeneral = new Array(
+	'element',
+	'class'
+);
+
 var CSSViewer_pFont = new Array(
 	'font-family', 
 	'font-size', 
@@ -134,6 +117,7 @@ var CSSViewer_categories = {
 };
 
 var CSSViewer_categoriesTitle = { 
+	'pGeneral'    : 'Element & Class', 
 	'pFontText'    : 'Font & Text', 
 	'pColorBg'     : 'Color & Background', 
 	'pBox'         : 'Box', 
