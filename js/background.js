@@ -1,24 +1,10 @@
-/*!
-* CSSViewer, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
-*
-* https://github.com/miled/cssviewer
-* https://chrome.google.com/webstore/detail/cssviewer/ggfgijbpiheegefliciemofobhmofgce
-*
-* This source code is licensed under the GNU General Public License,
-* Version 2. See the file COPYING for more details.
-*/
 
 var cssViewerLoaded              = false; 
 var cssCiewerContextMenusParent  = null;
 
-/*
-* Inject cssviewer.js/cssviewer.css into the current page
-*/
-
 
 chrome.runtime.onMessage.addListener (
     function (request, sender, sendResponse) {
-        console.log("Reached Background.js");
 		if (request.action == "initiateElementSelect") {
 			iniateElementSelect(request.data);
 		}
@@ -26,8 +12,8 @@ chrome.runtime.onMessage.addListener (
 );
 
 function iniateElementSelect(tab) {
-	console.log("click")
-	if( tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
+	console.log("click", tab)
+	if(tab == null || tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
 	{
 		console.log( "CSSViewer doesn't work on Google Chrome webstore!" );
 

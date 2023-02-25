@@ -1,18 +1,3 @@
-/*!
-* CSSViewer, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
-* https://github.com/cssviewer/cssviewer
-* https://chrome.google.com/webstore/detail/cssviewer/ggfgijbpiheegefliciemofobhmofgce
-*
-* Copyright (c) 2006, 2008 Nicolas Huon 
-*
-* This source code is licensed under the GNU General Public License,
-* Version 2. See the file COPYING for more details.
-*/
-
-/*
-** Common styles. Almost everything is !important; here p
-*/
-
 #CSSViewer_block,
 #CSSViewer_center,
 #CSSViewer_footer,
