@@ -1,3 +1,8 @@
+/*!
+* designr, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
+* https://github.com/ANG13T/designr
+*/
+
 let startButton = document.getElementById("startButton");
 let homePage = document.getElementById("home");
 let mainPage = document.getElementById("main");
