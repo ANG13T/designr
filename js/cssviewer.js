@@ -740,7 +740,7 @@ function CSSViewer()
 			footer.id = 'CSSViewer_footer';
 
 			//< 
-			footer.appendChild( document.createTextNode('CSSViewer 1.7. keys: [f] Un/Freeze. [c] Css. [Esc] Close.') ); 
+			footer.appendChild( document.createTextNode('designr (1.0.0)      [Esc] Close out popup') ); 
 			block.appendChild(footer);
 		}
 		
