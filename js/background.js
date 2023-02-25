@@ -1,4 +1,3 @@
-
 var designrLoaded              = false; 
 var cssCiewerContextMenusParent  = null;
 

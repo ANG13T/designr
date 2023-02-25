@@ -546,7 +546,7 @@ function designrMouseOver(e)
 
 	// Outline element
 	if (this.tagName != 'body') {
-		this.style.outline = '1px dashed #f00';
+		this.style.outline = '1.5px dashed #63a3eb';
 		designr_current_element = this;
 	}
 	
