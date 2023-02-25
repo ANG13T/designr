@@ -1,5 +1,5 @@
 
-var cssViewerLoaded              = false; 
+var designrLoaded              = false; 
 var cssCiewerContextMenusParent  = null;
 
 
@@ -15,15 +15,15 @@ function iniateElementSelect(tab) {
 	console.log("click", tab)
 	if(tab == null || tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
 	{
-		console.log( "CSSViewer doesn't work on Google Chrome webstore!" );
+		console.log( "designr doesn't work on Google Chrome webstore!" );
 
 		return;
 	}
 
-	if( ! cssViewerLoaded ) 
+	if( ! designrLoaded ) 
 	{
 		console.log("loading contexts")
-		cssCiewerContextMenusParent  = chrome.contextMenus.create( { "title" : "CSSViewer console", contexts:["all"] } );
+		cssCiewerContextMenusParent  = chrome.contextMenus.create( { "title" : "designr console", contexts:["all"] } );
 
 		chrome.contextMenus.create( { "title": "element"                    , contexts:["all"] , "parentId": cssCiewerContextMenusParent, "onclick": cssCiewerDebugEl } );
 		chrome.contextMenus.create( { "title": "element.id"                 , contexts:["all"] , "parentId": cssCiewerContextMenusParent, "onclick": cssCiewerDebugElId } );
@@ -35,48 +35,48 @@ function iniateElementSelect(tab) {
 		chrome.contextMenus.create( { "title": "element.simpleCssDefinition", contexts:["all"] , "parentId": cssCiewerContextMenusParent, "onclick": cssCiewerDebugElSimpleCssDefinition } );
 	}
 
-	chrome.tabs.executeScript(tab.id, {file:'js/cssviewer.js'});
-	chrome.tabs.insertCSS(tab.id, {file:'css/cssviewer.css'});
+	chrome.tabs.executeScript(tab.id, {file:'js/designr.js'});
+	chrome.tabs.insertCSS(tab.id, {file:'css/designr.css'});
 
-	cssViewerLoaded = true;
+	designrLoaded = true;
 }
 
 function cssCiewerDebugEl( info, tab )
 {
-	chrome.tabs.executeScript(tab.id, {code:'cssViewerCopyCssToConsole("el")'});
+	chrome.tabs.executeScript(tab.id, {code:'designrCopyCssToConsole("el")'});
 }
 
 function cssCiewerDebugElId( info, tab )
 {
-	chrome.tabs.executeScript(tab.id, {code:'cssViewerCopyCssToConsole("id")'});
+	chrome.tabs.executeScript(tab.id, {code:'designrCopyCssToConsole("id")'});
 }
 
 function cssCiewerDebugElTagName( info, tab )
 {
-	chrome.tabs.executeScript(tab.id, {code:'cssViewerCopyCssToConsole("tagName")'});
+	chrome.tabs.executeScript(tab.id, {code:'designrCopyCssToConsole("tagName")'});
 }
 
 function cssCiewerDebugElClassName( info, tab )
 {
-	chrome.tabs.executeScript(tab.id, {code:'cssViewerCopyCssToConsole("className")'});
+	chrome.tabs.executeScript(tab.id, {code:'designrCopyCssToConsole("className")'});
 }
 
 function cssCiewerDebugElStyle( info, tab )
 {
-	chrome.tabs.executeScript(tab.id, {code:'cssViewerCopyCssToConsole("style")'});
+	chrome.tabs.executeScript(tab.id, {code:'designrCopyCssToConsole("style")'});
 }
 
 function cssCiewerDebugElCssText( info, tab )
 {
-	chrome.tabs.executeScript(tab.id, {code:'cssViewerCopyCssToConsole("cssText")'});
+	chrome.tabs.executeScript(tab.id, {code:'designrCopyCssToConsole("cssText")'});
 }
  
 function cssCiewerDebugElGetComputedStyle( info, tab )
 {
-	chrome.tabs.executeScript(tab.id, {code:'cssViewerCopyCssToConsole("getComputedStyle")'});
+	chrome.tabs.executeScript(tab.id, {code:'designrCopyCssToConsole("getComputedStyle")'});
 }
 
 function cssCiewerDebugElSimpleCssDefinition( info, tab )
 {
-	chrome.tabs.executeScript(tab.id, {code:'cssViewerCopyCssToConsole("simpleCssDefinition")'});
+	chrome.tabs.executeScript(tab.id, {code:'designrCopyCssToConsole("simpleCssDefinition")'});
 }

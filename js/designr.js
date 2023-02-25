@@ -1,19 +1,19 @@
-var CSSViewer_element
+var designr_element
 
-var CSSViewer_element_cssDefinition
+var designr_element_cssDefinition
 
-var CSSViewer_container
+var designr_container
 
-var CSSViewer_current_element
+var designr_current_element
 
 // CSS Properties
 
-var CSSViewer_pGeneral = new Array(
+var designr_pGeneral = new Array(
 	'element',
 	'class'
 );
 
-var CSSViewer_pFont = new Array(
+var designr_pFont = new Array(
 	'font-family', 
 	'font-size', 
 	'font-style', 
@@ -30,7 +30,7 @@ var CSSViewer_pFont = new Array(
 	'word-spacing'
 );
 
-var CSSViewer_pColorBg = new Array(
+var designr_pColorBg = new Array(
 	'background-attachment', 
 	'background-color', 
 	'background-image',
@@ -39,7 +39,7 @@ var CSSViewer_pColorBg = new Array(
 	'color'
 );
 
-var CSSViewer_pBox = new Array(
+var designr_pBox = new Array(
 	'height',
 	'width',
 	'border',
@@ -55,7 +55,7 @@ var CSSViewer_pBox = new Array(
 	'min-width'
 );
 
-var CSSViewer_pPositioning = new Array(
+var designr_pPositioning = new Array(
 	'position', 
 	'top', 
 	'bottom', 
@@ -67,13 +67,13 @@ var CSSViewer_pPositioning = new Array(
 	'z-index'
 );
 
-var CSSViewer_pList = new Array(
+var designr_pList = new Array(
 	'list-style-image', 
 	'list-style-type', 
 	'list-style-position'
 );
 
-var CSSViewer_pTable = new Array(
+var designr_pTable = new Array(
 	'border-collapse',
 	'border-spacing',
 	'caption-side',
@@ -81,13 +81,13 @@ var CSSViewer_pTable = new Array(
 	'table-layout'
 );
 
-var CSSViewer_pMisc = new Array(
+var designr_pMisc = new Array(
 	'overflow', 
 	'cursor', 
 	'visibility'
 );
 
-var CSSViewer_pEffect = new Array(
+var designr_pEffect = new Array(
 	'transform',
 	'transition',
 	'outline',
@@ -105,19 +105,19 @@ var CSSViewer_pEffect = new Array(
 );
 
 // CSS Property categories
-var CSSViewer_categories = { 
-	'pGeneral'    : CSSViewer_pGeneral, 
-	'pFontText'    : CSSViewer_pFont, 
-	'pColorBg'     : CSSViewer_pColorBg, 
-	'pBox'         : CSSViewer_pBox, 
-	'pPositioning' : CSSViewer_pPositioning, 
-	'pList'        : CSSViewer_pList, 
-	'pTable'       : CSSViewer_pTable, 
-	'pMisc'        : CSSViewer_pMisc, 
-	'pEffect'      : CSSViewer_pEffect 
+var designr_categories = { 
+	'pGeneral'    : designr_pGeneral, 
+	'pFontText'    : designr_pFont, 
+	'pColorBg'     : designr_pColorBg, 
+	'pBox'         : designr_pBox, 
+	'pPositioning' : designr_pPositioning, 
+	'pList'        : designr_pList, 
+	'pTable'       : designr_pTable, 
+	'pMisc'        : designr_pMisc, 
+	'pEffect'      : designr_pEffect 
 };
 
-var CSSViewer_categoriesTitle = { 
+var designr_categoriesTitle = { 
 	'pGeneral'    : 'Element & Class', 
 	'pFontText'    : 'Font & Text', 
 	'pColorBg'     : 'Color & Background', 
@@ -130,7 +130,7 @@ var CSSViewer_categoriesTitle = {
 };
 
 // Table tagnames
-var CSSViewer_tableTagNames = new Array(
+var designr_tableTagNames = new Array(
 	'TABLE',
 	'CAPTION',
 	'THEAD',
@@ -143,7 +143,7 @@ var CSSViewer_tableTagNames = new Array(
 	'TD'
 );
 
-var CSSViewer_listTagNames = new Array(
+var designr_listTagNames = new Array(
 	'UL',
 	'LI',
 	'DD',
@@ -152,7 +152,7 @@ var CSSViewer_listTagNames = new Array(
 );
 
 // Hexadecimal
-var CSSViewer_hexa = new Array(
+var designr_hexa = new Array(
 	'0',
 	'1',
 	'2',
@@ -194,9 +194,9 @@ function DecToHex(nb)
 {
 	var nbHexa = '';
 
-	nbHexa += CSSViewer_hexa[Math.floor(nb / 16)];
+	nbHexa += designr_hexa[Math.floor(nb / 16)];
 	nb = nb % 16;
-	nbHexa += CSSViewer_hexa[nb];
+	nbHexa += designr_hexa[nb];
 	
 	return nbHexa;
 }
@@ -255,7 +255,7 @@ function GetCSSProperty(element, property)
 function SetCSSProperty(element, property, tagName = '', className = '', id = '')
 {
 	var document = GetCurrentDocument();
-	var li = document.getElementById('CSSViewer_' + property);
+	var li = document.getElementById('designr_' + property);
 
 	if (property == "element") {
 		li.lastChild.innerHTML = " : " + tagName.toLowerCase();
@@ -269,7 +269,7 @@ function SetCSSProperty(element, property, tagName = '', className = '', id = ''
 function SetCSSPropertyIf(element, property, condition)
 {
 	var document = GetCurrentDocument();
-	var li = document.getElementById('CSSViewer_' + property);
+	var li = document.getElementById('designr_' + property);
 
 	if (condition) {
 		li.lastChild.innerHTML = " : " + element.getPropertyValue(property);
@@ -287,7 +287,7 @@ function SetCSSPropertyIf(element, property, condition)
 function SetCSSPropertyValue(element, property, value)
 {
 	var document = GetCurrentDocument();
-	var li = document.getElementById('CSSViewer_' + property);
+	var li = document.getElementById('designr_' + property);
 
 	li.lastChild.innerHTML = " : " + value;
 	li.style.display = 'block';
@@ -296,7 +296,7 @@ function SetCSSPropertyValue(element, property, value)
 function SetCSSPropertyValueIf(element, property, value, condition)
 {
 	var document = GetCurrentDocument();
-	var li = document.getElementById('CSSViewer_' + property);
+	var li = document.getElementById('designr_' + property);
 
 	if (condition) {
 		li.lastChild.innerHTML = " : " + value;
@@ -314,7 +314,7 @@ function SetCSSPropertyValueIf(element, property, value, condition)
 function HideCSSProperty(property)
 {
 	var document = GetCurrentDocument();
-	var li = document.getElementById('CSSViewer_' + property);
+	var li = document.getElementById('designr_' + property);
 
 	li.style.display = 'none';
 }
@@ -322,7 +322,7 @@ function HideCSSProperty(property)
 function HideCSSCategory(category)
 {
 	var document = GetCurrentDocument();
-	var div = document.getElementById('CSSViewer_' + category);
+	var div = document.getElementById('designr_' + category);
 
 	div.style.display = 'none';
 }
@@ -330,7 +330,7 @@ function HideCSSCategory(category)
 function ShowCSSCategory(category)
 {
 	var document = GetCurrentDocument();
-	var div = document.getElementById('CSSViewer_' + category);
+	var div = document.getElementById('designr_' + category);
 
 	div.style.display = 'block';
 }
@@ -447,7 +447,7 @@ function UpdatePositioning(element)
 
 function UpdateTable(element, tagName)
 {
-	if (IsInArray(CSSViewer_tableTagNames, tagName)) {
+	if (IsInArray(designr_tableTagNames, tagName)) {
 		var nbProperties = 0;
 
 		nbProperties += SetCSSPropertyIf(element, 'border-collapse', GetCSSProperty(element, 'border-collapse') != 'separate');
@@ -468,7 +468,7 @@ function UpdateTable(element, tagName)
 
 function UpdateList(element, tagName)
 {
-	if (IsInArray(CSSViewer_listTagNames, tagName)) {
+	if (IsInArray(designr_listTagNames, tagName)) {
 		ShowCSSCategory('pList');
 
 		var listStyleImage = GetCSSProperty(element, 'list-style-image');
@@ -534,11 +534,11 @@ function UpdateEffects(element)
 ** Event Handlers
 */
 
-function CSSViewerMouseOver(e)
+function designrMouseOver(e)
 {
 	// Block
 	var document = GetCurrentDocument();
-	var block = document.getElementById('CSSViewer_block');
+	var block = document.getElementById('designr_block');
 
 	if( ! block ){
 		return;
@@ -547,7 +547,7 @@ function CSSViewerMouseOver(e)
 	// Outline element
 	if (this.tagName != 'body') {
 		this.style.outline = '1px dashed #f00';
-		CSSViewer_current_element = this;
+		designr_current_element = this;
 	}
 	
 	// Updating CSS properties
@@ -563,63 +563,63 @@ function CSSViewerMouseOver(e)
 	UpdateMisc(element);
 	UpdateEffects(element);
 
-	CSSViewer_element = this;
+	designr_element = this;
 
-	cssViewerRemoveElement("cssViewerInsertMessage");
+	designrRemoveElement("designrInsertMessage");
 
 	e.stopPropagation();
 
 	// generate simple css definition
-	CSSViewer_element_cssDefinition = this.tagName.toLowerCase() + (this.id == '' ? '' : ' #' + this.id) + (this.className == '' ? '' : ' .' + this.className) + " {\n";
+	designr_element_cssDefinition = this.tagName.toLowerCase() + (this.id == '' ? '' : ' #' + this.id) + (this.className == '' ? '' : ' .' + this.className) + " {\n";
 
-	CSSViewer_element_cssDefinition += "\t/* Font & Text */\n"; 
-	for (var i = 0; i < CSSViewer_pFont.length; i++)
-		CSSViewer_element_cssDefinition += "\t" + CSSViewer_pFont[i] + ': ' + element.getPropertyValue( CSSViewer_pFont[i] ) + ";\n";
+	designr_element_cssDefinition += "\t/* Font & Text */\n"; 
+	for (var i = 0; i < designr_pFont.length; i++)
+		designr_element_cssDefinition += "\t" + designr_pFont[i] + ': ' + element.getPropertyValue( designr_pFont[i] ) + ";\n";
 
-	CSSViewer_element_cssDefinition += "\n\t/* Color & Background */\n";
-	for (var i = 0; i < CSSViewer_pColorBg.length; i++)
-		CSSViewer_element_cssDefinition += "\t" + CSSViewer_pColorBg[i] + ': ' + element.getPropertyValue( CSSViewer_pColorBg[i] ) + ";\n";
+	designr_element_cssDefinition += "\n\t/* Color & Background */\n";
+	for (var i = 0; i < designr_pColorBg.length; i++)
+		designr_element_cssDefinition += "\t" + designr_pColorBg[i] + ': ' + element.getPropertyValue( designr_pColorBg[i] ) + ";\n";
 
-	CSSViewer_element_cssDefinition += "\n\t/* Box */\n";
-	for (var i = 0; i < CSSViewer_pBox.length; i++)
-		CSSViewer_element_cssDefinition += "\t" + CSSViewer_pBox[i] + ': ' + element.getPropertyValue( CSSViewer_pBox[i] ) + ";\n";
+	designr_element_cssDefinition += "\n\t/* Box */\n";
+	for (var i = 0; i < designr_pBox.length; i++)
+		designr_element_cssDefinition += "\t" + designr_pBox[i] + ': ' + element.getPropertyValue( designr_pBox[i] ) + ";\n";
 
-	CSSViewer_element_cssDefinition += "\n\t/* Positioning */\n";
-	for (var i = 0; i < CSSViewer_pPositioning.length; i++)
-		CSSViewer_element_cssDefinition += "\t" + CSSViewer_pPositioning[i] + ': ' + element.getPropertyValue( CSSViewer_pPositioning[i] ) + ";\n";
+	designr_element_cssDefinition += "\n\t/* Positioning */\n";
+	for (var i = 0; i < designr_pPositioning.length; i++)
+		designr_element_cssDefinition += "\t" + designr_pPositioning[i] + ': ' + element.getPropertyValue( designr_pPositioning[i] ) + ";\n";
 
-	CSSViewer_element_cssDefinition += "\n\t/* List */\n";
-	for (var i = 0; i < CSSViewer_pList.length; i++)
-		CSSViewer_element_cssDefinition += "\t" + CSSViewer_pList[i] + ': ' + element.getPropertyValue( CSSViewer_pList[i] ) + ";\n";
+	designr_element_cssDefinition += "\n\t/* List */\n";
+	for (var i = 0; i < designr_pList.length; i++)
+		designr_element_cssDefinition += "\t" + designr_pList[i] + ': ' + element.getPropertyValue( designr_pList[i] ) + ";\n";
 
-	CSSViewer_element_cssDefinition += "\n\t/* Table */\n";
-	for (var i = 0; i < CSSViewer_pTable.length; i++)
-		CSSViewer_element_cssDefinition += "\t" + CSSViewer_pTable[i] + ': ' + element.getPropertyValue( CSSViewer_pTable[i] ) + ";\n";
+	designr_element_cssDefinition += "\n\t/* Table */\n";
+	for (var i = 0; i < designr_pTable.length; i++)
+		designr_element_cssDefinition += "\t" + designr_pTable[i] + ': ' + element.getPropertyValue( designr_pTable[i] ) + ";\n";
 
-	CSSViewer_element_cssDefinition += "\n\t/* Miscellaneous */\n";
-	for (var i = 0; i < CSSViewer_pMisc.length; i++)
-		CSSViewer_element_cssDefinition += "\t" + CSSViewer_pMisc[i] + ': ' + element.getPropertyValue( CSSViewer_pMisc[i] ) + ";\n";
+	designr_element_cssDefinition += "\n\t/* Miscellaneous */\n";
+	for (var i = 0; i < designr_pMisc.length; i++)
+		designr_element_cssDefinition += "\t" + designr_pMisc[i] + ': ' + element.getPropertyValue( designr_pMisc[i] ) + ";\n";
 
-	CSSViewer_element_cssDefinition += "\n\t/* Effects */\n"; 
-	for (var i = 0; i < CSSViewer_pEffect.length; i++)
-		CSSViewer_element_cssDefinition += "\t" + CSSViewer_pEffect[i] + ': ' + element.getPropertyValue( CSSViewer_pEffect[i] ) + ";\n";
+	designr_element_cssDefinition += "\n\t/* Effects */\n"; 
+	for (var i = 0; i < designr_pEffect.length; i++)
+		designr_element_cssDefinition += "\t" + designr_pEffect[i] + ': ' + element.getPropertyValue( designr_pEffect[i] ) + ";\n";
 
-	CSSViewer_element_cssDefinition += "}";
+	designr_element_cssDefinition += "}";
 
 	// console.log( element.cssText ); //< debug the hovered el css
 }
 
-function CSSViewerMouseOut(e)
+function designrMouseOut(e)
 {
 	this.style.outline = '';
 
 	e.stopPropagation();
 }
 
-function CSSViewerMouseMove(e)
+function designrMouseMove(e)
 {
 	var document = GetCurrentDocument();
-	var block = document.getElementById('CSSViewer_block');
+	var block = document.getElementById('designr_block');
 
 	if( ! block ){
 		return;
@@ -653,7 +653,7 @@ function CSSViewerMouseMove(e)
 		block.style.top = (e.pageY + 20) + 'px';
 
 	// adapt block top to screen offset
-	inView = CSSViewerIsElementInViewport(block);
+	inView = designrIsElementInViewport(block);
 
 	if( ! inView )
 		block.style.top = ( window.pageYOffset  + 20 ) + 'px';
@@ -662,7 +662,7 @@ function CSSViewerMouseMove(e)
 }
 
 // http://stackoverflow.com/a/7557433
-function CSSViewerIsElementInViewport(el) {
+function designrIsElementInViewport(el) {
     var rect = el.getBoundingClientRect();
 
     return (
@@ -674,9 +674,9 @@ function CSSViewerIsElementInViewport(el) {
 }
 
 /*
-* CSSViewer Class
+* designr Class
 */
-function CSSViewer()
+function designr()
 {
 	// Create a block to display informations
 	this.CreateBlock = function() {
@@ -686,7 +686,7 @@ function CSSViewer()
 		if (document) {
 			// Create a div block
 			block = document.createElement('div');
-			block.id = 'CSSViewer_block';
+			block.id = 'designr_block';
 			
 			var header = document.createElement('h1');
 			header.appendChild(document.createTextNode(''));
@@ -695,29 +695,29 @@ function CSSViewer()
 			// Insert all properties
 			var center = document.createElement('div');
 
-			center.id = 'CSSViewer_center';
+			center.id = 'designr_center';
 
-			for (var cat in CSSViewer_categories) {
+			for (var cat in designr_categories) {
 				var div = document.createElement('div');
 
-				div.id = 'CSSViewer_' + cat;
-				div.className = 'CSSViewer_category';
+				div.id = 'designr_' + cat;
+				div.className = 'designr_category';
 
 				var h2 = document.createElement('h2');
 
-				h2.appendChild(document.createTextNode(CSSViewer_categoriesTitle[cat]));
+				h2.appendChild(document.createTextNode(designr_categoriesTitle[cat]));
 
 				var ul = document.createElement('ul');
-				var properties = CSSViewer_categories[cat];
+				var properties = designr_categories[cat];
 
 				for (var i = 0; i < properties.length; i++) {
 					var li = document.createElement('li');
 
-					li.id = 'CSSViewer_' + properties[i];
+					li.id = 'designr_' + properties[i];
 
 					var spanName = document.createElement('span');
 
-					spanName.className = 'CSSViewer_property';
+					spanName.className = 'designr_property';
 
 					var spanValue = document.createElement('span');
 
@@ -737,14 +737,14 @@ function CSSViewer()
 			// Insert a footer
 			var footer = document.createElement('div');
 
-			footer.id = 'CSSViewer_footer';
+			footer.id = 'designr_footer';
 
 			//< 
 			footer.appendChild( document.createTextNode('designr (1.0.0)      [Esc] Close out popup') ); 
 			block.appendChild(footer);
 		}
 		
-		cssViewerInsertMessage( "CSSViewer loaded! Hover any element you want to inspect in the page." );
+		designrInsertMessage( "designr loaded! Hover any element you want to inspect in the page." );
 
 		return block;
 	}
@@ -782,9 +782,9 @@ function CSSViewer()
 		var elements = this.GetAllElements(document.body);
 
 		for (var i = 0; i < elements.length; i++)	{
-			elements[i].addEventListener("mouseover", CSSViewerMouseOver, false);
-			elements[i].addEventListener("mouseout", CSSViewerMouseOut, false);
-			elements[i].addEventListener("mousemove", CSSViewerMouseMove, false);
+			elements[i].addEventListener("mouseover", designrMouseOver, false);
+			elements[i].addEventListener("mouseout", designrMouseOut, false);
+			elements[i].addEventListener("mousemove", designrMouseMove, false);
 		}	
 		this.haveEventListeners = true;
 	}
@@ -796,9 +796,9 @@ function CSSViewer()
 		var elements = this.GetAllElements(document.body);
 
 		for (var i = 0; i < elements.length; i++){
-			elements[i].removeEventListener("mouseover", CSSViewerMouseOver, false);
-			elements[i].removeEventListener("mouseout", CSSViewerMouseOut, false);
-			elements[i].removeEventListener("mousemove", CSSViewerMouseMove, false);
+			elements[i].removeEventListener("mouseover", designrMouseOver, false);
+			elements[i].removeEventListener("mouseout", designrMouseOut, false);
+			elements[i].removeEventListener("mousemove", designrMouseMove, false);
 		}	
 		this.haveEventListeners = false;
 	}
@@ -845,13 +845,13 @@ function CSSViewer()
 }
 
 /*
-* Check if CSSViewer is enabled
+* Check if designr is enabled
 */
-CSSViewer.prototype.IsEnabled = function()
+designr.prototype.IsEnabled = function()
 {
 	var document = GetCurrentDocument();
 
-	if (document.getElementById('CSSViewer_block')) {
+	if (document.getElementById('designr_block')) {
 		return true;
 	}
 
@@ -859,12 +859,12 @@ CSSViewer.prototype.IsEnabled = function()
 }
 
 /*
-* Enable CSSViewer
+* Enable designr
 */
-CSSViewer.prototype.Enable = function()
+designr.prototype.Enable = function()
 {
 	var document = GetCurrentDocument();
-	var block = document.getElementById('CSSViewer_block');
+	var block = document.getElementById('designr_block');
 
 	if (!block){
 		block = this.CreateBlock();
@@ -878,13 +878,13 @@ CSSViewer.prototype.Enable = function()
 }
 
 /*
-* Disable CSSViewer
+* Disable designr
 */
-CSSViewer.prototype.Disable = function()
+designr.prototype.Disable = function()
 {
 	var document = GetCurrentDocument();
-	var block = document.getElementById('CSSViewer_block');
-        var insertMessage = document.getElementById("cssViewerInsertMessage");
+	var block = document.getElementById('designr_block');
+        var insertMessage = document.getElementById("designrInsertMessage");
         
 	if (block || insertMessage) {
                 if(block) document.body.removeChild(block);
@@ -900,13 +900,13 @@ CSSViewer.prototype.Disable = function()
 /*
 * Display the notification message
 */
-function cssViewerInsertMessage( msg )
+function designrInsertMessage( msg )
 {
 	var oNewP = document.createElement("p");
 	var oText = document.createTextNode( msg );
 
 	oNewP.appendChild(oText);
-	oNewP.id                    = 'cssViewerInsertMessage';
+	oNewP.id                    = 'designrInsertMessage';
 	oNewP.style.backgroundColor = '#b40000';
 	oNewP.style.color           = '#ffffff';
 	oNewP.style.position        = "fixed";
@@ -920,7 +920,7 @@ function cssViewerInsertMessage( msg )
 /*
 * Removes and element from the dom, used to remove the notification message
 */
-function cssViewerRemoveElement(divid)
+function designrRemoveElement(divid)
 {   
 	var n = document.getElementById(divid);
 
@@ -932,31 +932,31 @@ function cssViewerRemoveElement(divid)
 /*
 * Copy current element css to chrome console
 */
-function cssViewerCopyCssToConsole(type)
+function designrCopyCssToConsole(type)
 {   
-	if( 'el' == type ) return console.log( CSSViewer_element );
-	if( 'id' == type ) return console.log( CSSViewer_element.id );
-	if( 'tagName' == type ) return console.log( CSSViewer_element.tagName );
-	if( 'className' == type ) return console.log( CSSViewer_element.className );
-	if( 'style' == type ) return console.log( CSSViewer_element.style ); 
-	if( 'cssText' == type ) return console.log( document.defaultView.getComputedStyle(CSSViewer_element, null).cssText );
-	if( 'getComputedStyle' == type ) return console.log( document.defaultView.getComputedStyle(CSSViewer_element, null) );
-	if( 'simpleCssDefinition' == type ) return console.log( CSSViewer_element_cssDefinition );
+	if( 'el' == type ) return console.log( designr_element );
+	if( 'id' == type ) return console.log( designr_element.id );
+	if( 'tagName' == type ) return console.log( designr_element.tagName );
+	if( 'className' == type ) return console.log( designr_element.className );
+	if( 'style' == type ) return console.log( designr_element.style ); 
+	if( 'cssText' == type ) return console.log( document.defaultView.getComputedStyle(designr_element, null).cssText );
+	if( 'getComputedStyle' == type ) return console.log( document.defaultView.getComputedStyle(designr_element, null) );
+	if( 'simpleCssDefinition' == type ) return console.log( designr_element_cssDefinition );
 }
 
 /*
 *  Close css viewer on clicking 'esc' key
 *  Freeze css viewer on clicking 'f' key
 */
-function CssViewerKeyMap(e) {
-	if( ! cssViewer.IsEnabled() )
+function designrKeyMap(e) {
+	if( ! designr.IsEnabled() )
 		return;
 
-	// ESC: Close the css viewer if the cssViewer is enabled.
+	// ESC: Close the css viewer if the designr is enabled.
 	if ( e.keyCode === 27 ){
 		// Remove the red outline
-		CSSViewer_current_element.style.outline = '';
-		cssViewer.Disable();
+		designr_current_element.style.outline = '';
+		designr.Disable();
 	}
 	
 	if( e.altKey || e.ctrlKey )
@@ -965,22 +965,22 @@ function CssViewerKeyMap(e) {
 	// c: Show code css for selected element. 
 	// window.prompt should suffice for now.
 	if ( e.keyCode === 67 ){
-		window.prompt("Simple Css Definition :\n\nYou may copy the code below then hit escape to continue.", CSSViewer_element_cssDefinition);
+		window.prompt("Simple Css Definition :\n\nYou may copy the code below then hit escape to continue.", designr_element_cssDefinition);
 	}
 }
 
 
 /*
-* CSSViewer entry-point
+* designr entry-point
 */
-cssViewer = new CSSViewer();
+designr = new designr();
 
-if ( cssViewer.IsEnabled() ){
-	cssViewer.Disable();  
+if ( designr.IsEnabled() ){
+	designr.Disable();  
 }
 else{
-	cssViewer.Enable(); 
+	designr.Enable(); 
 }
 
-// Set event handler for the CssViewer 
-document.onkeydown = CssViewerKeyMap;
+// Set event handler for the designr 
+document.onkeydown = designrKeyMap;

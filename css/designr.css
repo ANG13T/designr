@@ -1,13 +1,13 @@
-#CSSViewer_block,
-#CSSViewer_center,
-#CSSViewer_footer,
-.CSSViewer_category,
-span.CSSViewer_property,
-#CSSViewer_block h1,
-#CSSViewer_block h2,
-#CSSViewer_block ul,
-#CSSViewer_block li,
-#CSSViewer_block span
+#designr_block,
+#designr_center,
+#designr_footer,
+.designr_category,
+span.designr_property,
+#designr_block h1,
+#designr_block h2,
+#designr_block ul,
+#designr_block li,
+#designr_block span
 {
 	font-family:"Lucida sans", helvetica, sans-serif !important;
 	font-size:10px !important;
@@ -22,7 +22,7 @@ span.CSSViewer_property,
 	line-height: 20px; 
 }
 
-#CSSViewer_block
+#designr_block
 {
 	display:none;
 	min-width:300px !important;
@@ -33,13 +33,13 @@ span.CSSViewer_property,
 	border: 1.5px solid white;
 }
 
-#CSSViewer_center
+#designr_center
 {
 	padding:10px 32px 0 32px !important;
 	overflow:hidden !important;
 }
 
-#CSSViewer_footer
+#designr_footer
 {
 	padding-top:10px;
 	color: rgb(176, 195, 211) !important;
@@ -49,12 +49,12 @@ span.CSSViewer_property,
 	display:block !important;
 }
 
-.CSSViewer_category
+.designr_category
 {
 	padding:0 5px !important;
 }
 
-#CSSViewer_block h2
+#designr_block h2
 {
 	padding-top:6px !important;
 	color:#63a3eb !important;
@@ -63,7 +63,7 @@ span.CSSViewer_property,
 	letter-spacing:-0.5px !important;
 }
 
-#CSSViewer_block ul
+#designr_block ul
 {
 	padding:0px !important;
 	padding-bottom: 10px !important;
@@ -71,14 +71,14 @@ span.CSSViewer_property,
 	width:250px !important;
 }
 
-#CSSViewer_block li
+#designr_block li
 {
 	padding-left:0px !important; 
 	color:#b6b6b6 !important;
 }
 
 
-#CSSViewer_block span.CSSViewer_property
+#designr_block span.designr_property
 {
 	color: white !important;
 	float:left !important;
