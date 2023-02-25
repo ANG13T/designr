@@ -80,7 +80,7 @@ function renderPalettes(selectedPal) {
         let newRow = paletteTableContent.insertRow(index);
         newRow.innerHTML = `
             <tr>
-                <td class="paletteTableRowBody index-${index}">${pa.name}</td>
+                <td class="paletteTableRowBody firstCol index-${index}">${pa.name}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.createdDate}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.elements}</td>
             </tr>
