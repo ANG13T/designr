@@ -692,9 +692,7 @@ function CSSViewer()
 			block = document.createElement('div');
 			block.id = 'CSSViewer_block';
 			
-			// Insert a title for CSS selector
 			var header = document.createElement('h1');
-
 			header.appendChild(document.createTextNode(''));
 			block.appendChild(header);
 			
@@ -954,13 +952,6 @@ function cssViewerInsertMessage( msg )
 	oNewP.style.left            = '10px';
 	oNewP.style.zIndex          = '9999';
 	oNewP.style.padding         = '3px';
-
-	// https://github.com/miled/cssviewer/issues/5
-	// https://github.com/miled/cssviewer/issues/6
-	// var beforeMe = document.getElementsByTagName("body");
-	// document.body.insertBefore( oNewP, beforeMe[0] );
-
-	// https://github.com/zchee/cssviewer/commit/dad107d27e94aabeb6e11b935ad28c4ff251f895
 	document.body.appendChild(oNewP);
 }
 
