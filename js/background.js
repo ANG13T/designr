@@ -16,14 +16,16 @@ var cssCiewerContextMenusParent  = null;
 */
 
 
-function updateBg(request, sender, sendResponse) {
-  console.log(request, request.message)
-}
+chrome.runtime.onMessage.addListener (
+    function (request, sender, sendResponse) {
+        console.log("Reached Background.js");
+		if (request.action == "initiateElementSelect") {
+			iniateElementSelect(request.data);
+		}
+    }
+);
 
-console.log("hi")
-chrome.runtime.onMessage.addListener(updateBg);
-
-function iniateElementSelect() {
+function iniateElementSelect(tab) {
 	console.log("click")
 	if( tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
 	{

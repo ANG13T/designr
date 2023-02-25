@@ -315,13 +315,13 @@ deleteModalConfirmButton.addEventListener("click", () => {
 })
 
 selectElementButton.addEventListener("click", () => {
+    console.log("click select button")
     chrome.tabs.query({
         active: true,
         currentWindow: true
     }, function(tabs) {
         var tabURL = tabs[0].url;
-        chrome.tabs.sendMessage(tabs[0].id, {message: "hello"});
-        console.log(tabURL);
+        chrome.runtime.sendMessage({action: "initiateElementSelect", data: tabs[0]})
     });
 })
 
