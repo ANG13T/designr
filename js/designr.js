@@ -534,6 +534,13 @@ function UpdateEffects(element)
 ** Event Handlers
 */
 
+function designrClick(e)
+{
+	e.stopPropagation();
+	var element = document.defaultView.getComputedStyle(this, null);
+	console.log("click something", element)
+}
+
 function designrMouseOver(e)
 {
 	// Block
@@ -606,7 +613,7 @@ function designrMouseOver(e)
 
 	designr_element_cssDefinition += "}";
 
-	// console.log( element.cssText ); //< debug the hovered el css
+	console.log( element.cssText ); 
 }
 
 function designrMouseOut(e)
@@ -740,11 +747,11 @@ function designr()
 			footer.id = 'designr_footer';
 
 			//< 
-			footer.appendChild( document.createTextNode('designr (1.0.0)      [Esc] Close out popup') ); 
+			footer.appendChild( document.createTextNode('designr (1.0.0)      [Esc] Close out of popup') ); 
 			block.appendChild(footer);
 		}
 		
-		designrInsertMessage( "designr loaded! Hover any element you want to inspect in the page." );
+		designrInsertMessage( "Hover over any element to inspect in the page and click on an element to save it." );
 
 		return block;
 	}
@@ -783,6 +790,7 @@ function designr()
 
 		for (var i = 0; i < elements.length; i++)	{
 			elements[i].addEventListener("mouseover", designrMouseOver, false);
+			elements[i].addEventListener("click", designrClick, false);
 			elements[i].addEventListener("mouseout", designrMouseOut, false);
 			elements[i].addEventListener("mousemove", designrMouseMove, false);
 		}	
@@ -797,6 +805,7 @@ function designr()
 
 		for (var i = 0; i < elements.length; i++){
 			elements[i].removeEventListener("mouseover", designrMouseOver, false);
+			elements[i].removeEventListener("click", designrClick, false);
 			elements[i].removeEventListener("mouseout", designrMouseOut, false);
 			elements[i].removeEventListener("mousemove", designrMouseMove, false);
 		}	
@@ -907,12 +916,13 @@ function designrInsertMessage( msg )
 
 	oNewP.appendChild(oText);
 	oNewP.id                    = 'designrInsertMessage';
-	oNewP.style.backgroundColor = '#b40000';
+	oNewP.style.backgroundColor = '#275e9d';
 	oNewP.style.color           = '#ffffff';
 	oNewP.style.position        = "fixed";
 	oNewP.style.top             = '10px';
 	oNewP.style.left            = '10px';
 	oNewP.style.zIndex          = '9999';
+	oNewP.style.fontSize        = '15px';
 	oNewP.style.padding         = '3px';
 	document.body.appendChild(oNewP);
 }
