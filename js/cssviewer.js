@@ -106,6 +106,7 @@ var CSSViewer_pEffect = new Array(
 
 // CSS Property categories
 var CSSViewer_categories = { 
+	'pGeneral'    : CSSViewer_pGeneral, 
 	'pFontText'    : CSSViewer_pFont, 
 	'pColorBg'     : CSSViewer_pColorBg, 
 	'pBox'         : CSSViewer_pBox, 
@@ -251,12 +252,18 @@ function GetCSSProperty(element, property)
 	return element.getPropertyValue(property);
 }
 
-function SetCSSProperty(element, property)
+function SetCSSProperty(element, property, tagName = '', className = '', id = '')
 {
 	var document = GetCurrentDocument();
 	var li = document.getElementById('CSSViewer_' + property);
 
-	li.lastChild.innerHTML = " : " + element.getPropertyValue(property);
+	if (property == "element") {
+		li.lastChild.innerHTML = " : " + tagName.toLowerCase();
+	} else if(property == "class") {
+		li.lastChild.innerHTML = " : " + (id == '' ? '' : ' #' + id) + (className == '' ? '' : ' .' + className) + "\n";
+	} else {
+		li.lastChild.innerHTML = " : " + element.getPropertyValue(property);
+	}
 }
 
 function SetCSSPropertyIf(element, property, condition)
@@ -326,6 +333,12 @@ function ShowCSSCategory(category)
 	var div = document.getElementById('CSSViewer_' + category);
 
 	div.style.display = 'block';
+}
+
+function UpdateGeneral(element, tagName, className, id) 
+{
+	SetCSSProperty(element, 'element', tagName, className, id);
+	SetCSSProperty(element, 'class', tagName, className, id);
 }
 
 function UpdatefontText(element)
@@ -531,8 +544,6 @@ function CSSViewerMouseOver(e)
 		return;
 	}
 
-	block.firstChild.innerHTML = '&lt;' + this.tagName + '&gt;' + (this.id == '' ? '' : ' #' + this.id) + (this.className == '' ? '' : ' .' + this.className);
-
 	// Outline element
 	if (this.tagName != 'body') {
 		this.style.outline = '1px dashed #f00';
@@ -542,6 +553,7 @@ function CSSViewerMouseOver(e)
 	// Updating CSS properties
 	var element = document.defaultView.getComputedStyle(this, null);
 
+	UpdateGeneral(element, this.tagName, this.className, this.id);
 	UpdatefontText(element);
 	UpdateColorBg(element);
 	UpdateBox(element);
