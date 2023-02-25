@@ -80,27 +80,12 @@ function renderPalettes(selectedPal) {
         let newRow = paletteTableContent.insertRow(index);
         newRow.innerHTML = `
             <tr>
-                <th>
-                    <label class="customcheckbox">
-                        <input type="checkbox" class="listCheckbox index-${index}" style="cursor: pointer">
-                        <span class="checkmark"></span>
-                    </label>
-                </th>
                 <td class="paletteTableRowBody index-${index}">${pa.name}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.createdDate}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.elements}</td>
             </tr>
         `;
     });
-
-    document.querySelectorAll(".listCheckbox").forEach((checkListBox) => {
-        checkListBox.addEventListener("click", (el) => {
-            let index = Number(el.srcElement.classList[1].split('-')[1]);
-            selectPalette = palettes[index];
-            selectedPaletteIndex = index;
-            reRenderCheckboxes();
-        })
-    })
 
     document.querySelectorAll(".paletteTableRowBody").forEach((tabBody) => {
         tabBody.addEventListener("click", (el) => {
@@ -113,25 +98,11 @@ function renderPalettes(selectedPal) {
             closeDeleteModal();
         })
     })
-
-    reRenderCheckboxes()
 }
 
 function renderViewPalettePage() {
     mainPage.hidden = true;
     viewPalettePage.hidden = false;
-}
-
-function reRenderCheckboxes() {
-    let checkboxes = document.querySelectorAll(".listCheckbox");
-    console.log(checkboxes)
-    checkboxes.forEach((checkbox, i) => {
-        if(i == selectedPaletteIndex) {
-            checkbox.checked = true;
-        } else {
-            checkbox.checked = false;
-        }
-    })
 }
 
 function setPalettes(selectedPal) {
