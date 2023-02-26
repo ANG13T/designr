@@ -301,9 +301,8 @@ selectElementButton.addEventListener("click", () => {
 
 // Start of Context Code
 
-
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log(message, "yipee")
-    // return true <- this and the callback in background.js are what caused a crash in extensions page of my Google chrome
+    console.log(message, "yipee");
+    
 });
     
