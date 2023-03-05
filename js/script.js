@@ -297,6 +297,7 @@ selectElementButton.addEventListener("click", () => {
         currentWindow: true
     }, function(tabs) {
         chrome.runtime.sendMessage({action: "initiateElementSelect", data: {tab: tabs[0], palette: viewPalette.name}})
+        window.close();
     });
 })
 
