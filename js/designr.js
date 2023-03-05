@@ -605,6 +605,8 @@ function designrClick(e)
 	console.log( element.cssText ); 
 
 	chrome.runtime.sendMessage({ data: {props: result, css: designr_element_cssDefinition, title: designr_element_title}, action: "clickElement" })
+
+	designrInsertMessage( "Element saved into palette!" );
 }
 
 function designrMouseOver(e)

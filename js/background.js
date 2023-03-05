@@ -19,7 +19,6 @@ chrome.runtime.onMessage.addListener (
 );
 
 function iniateElementSelect(tab) {
-	console.log("click", tab)
 	if(tab == null || tab.url.indexOf("https://chrome.google.com") == 0 || tab.url.indexOf("chrome://") == 0 )
 	{
 		console.log( "designr doesn't work on Google Chrome webstore!" );
@@ -69,7 +68,7 @@ function selectElementClick(element) {
 				}
 			}
 		});
-		
+
 		chrome.storage.local.set({ palettes: resultPal })
     });
 }
