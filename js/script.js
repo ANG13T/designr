@@ -126,9 +126,13 @@ function renderElementsPalette() {
 
     viewPalette.elementsData.forEach((pa, index) => {
         let newRow = elementTableContent.insertRow(index);
+        let elementTitle = pa.title;
+        if(elementTitle.length > 46) {
+            elementTitle = elementTitle.substring(0, 46).concat('...')
+        } 
         newRow.innerHTML = `
             <tr>
-                <td class="elementTableRowBody index-${index} firstCol">${pa.title}</td>
+                <td class="elementTableRowBody index-${index} firstCol">${elementTitle}</td>
             </tr>
         `;
     });
@@ -145,6 +149,11 @@ function renderElementsPalette() {
             // closeDeleteModal();
         })
     })
+}
+
+function renderViewElementsPage() {
+    viewPalettePage.hidden = true;
+    viewElementPage.hidden = false;
 }
 
 function setPalettes(selectedPal) {

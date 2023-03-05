@@ -211,14 +211,26 @@
     border-collapse:collapse;
     width: 100%;
     color: white;
+    display: block;
+    height: 355px;
+    overflow-y: scroll;
     margin-top: 10px;
     text-align: left;
+  }
+
+  #paletteElementsTable ::-webkit-scrollbar-thumb {
+    background: white; 
+  }
+
+  #paletteElementsTable td {
+    width: 400px;
   }
 
   #paletteElementsTable tr {
     cursor: pointer;
     transition: 0.5s;
     height: 34px;
+    width: 400px !important;
     padding-left: 10px;
   }
 
