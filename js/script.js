@@ -36,6 +36,8 @@ const deleteOverlay = document.getElementById("delete-overlay");
 
 let paletteTableElementNone = document.getElementById("none-palette-element");
 let selectElementButton = document.getElementById("select-element-button");
+let paletteElementsTable = document.getElementById("paletteElementsTable");
+let elementTableContent = document.getElementById('paletteElementsTable').getElementsByTagName('tbody')[0];
 
 let palettes = [];
 let selectedPalette = null;
@@ -103,6 +105,19 @@ function renderPalettes(selectedPal) {
 function renderViewPalettePage() {
     mainPage.hidden = true;
     viewPalettePage.hidden = false;
+    paletteElementsTable.hidden = true;
+    renderElementsPalette();
+}
+
+function renderElementsPalette() {
+    removeElementRows();
+    if (viewPalette.elementsData && viewPalette.elementsData.length > 0) {
+       paletteElementsTable.hidden = false;
+       paletteTableElementNone.hidden = true;
+    } else {
+        paletteElementsTable.hidden = true;
+        paletteTableElementNone.hidden = false;
+    }
 }
 
 function setPalettes(selectedPal) {
@@ -114,6 +129,12 @@ function setPalettes(selectedPal) {
 
 function removePaletteRows() {
     while (paletteTableContent.lastElementChild) {
+        paletteTableContent.removeChild(paletteTableContent.lastElementChild);
+    }
+}
+
+function removeElementRows() {
+    while (elementTableContent.lastElementChild) {
         paletteTableContent.removeChild(paletteTableContent.lastElementChild);
     }
 }
@@ -257,6 +278,7 @@ startButton.addEventListener('click', function () {
     setViewHome();
     mainPage.hidden = false;
     homePage.hidden = true;
+    paletteElementsTable.hidden = true;
     paletteTableNone.hidden = true;
 });
 
