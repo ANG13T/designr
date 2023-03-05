@@ -113,9 +113,6 @@
 
 
   /* Main Page */
-  .main {
-
-  }
 
   .logo-nav {
     height: 3rem;
@@ -196,6 +193,38 @@
   #paletteTable .headRow:hover {
     cursor:default;
     background-color: transparent !important;
+  }
+
+  #paletteElementsTable .headRow:hover {
+    cursor:default;
+    background-color: transparent !important;
+  }
+
+  #paletteElementsTable .headRow {
+    cursor: default;
+    font-weight: bold;
+    background-color: transparent !important;
+    font-size: 14px;
+  }
+
+  #paletteElementsTable {
+    border-collapse:collapse;
+    width: 100%;
+    color: white;
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  #paletteElementsTable tr {
+    cursor: pointer;
+    transition: 0.5s;
+    height: 34px;
+    padding-left: 10px;
+  }
+
+
+  #paletteElementsTable tr:hover {
+    background-color: #2e2f31;
   }
 
 

@@ -34,6 +34,7 @@ const deleteModalConfirmButton = document.getElementById("delete-palette-modal")
 const deleteCloseModalButton = document.getElementById("btn-close-delete");
 const deleteOverlay = document.getElementById("delete-overlay");
 
+let viewElementPage = document.getElementById("view-element");
 let paletteTableElementNone = document.getElementById("none-palette-element");
 let selectElementButton = document.getElementById("select-element-button");
 let paletteElementsTable = document.getElementById("paletteElementsTable");
@@ -124,7 +125,7 @@ function renderElementsPalette() {
     }
 
     viewPalette.elementsData.forEach((pa, index) => {
-        let newRow = paletteTableContent.insertRow(index);
+        let newRow = elementTableContent.insertRow(index);
         newRow.innerHTML = `
             <tr>
                 <td class="elementTableRowBody index-${index} firstCol">${pa.title}</td>
@@ -138,6 +139,7 @@ function renderElementsPalette() {
             viewElement = viewPalette.elementsData[index];
             viewElementIndex = index;
             elementTitle.innerText = viewElement.title;
+            viewElementPage.hidden = false;
             // renderViewPalettePage();
             // closeEditModal();
             // closeDeleteModal();
@@ -160,7 +162,7 @@ function removePaletteRows() {
 
 function removeElementRows() {
     while (elementTableContent.lastElementChild) {
-        paletteTableContent.removeChild(paletteTableContent.lastElementChild);
+        elementTableContent.removeChild(elementTableContent.lastElementChild);
     }
 }
 
@@ -262,6 +264,7 @@ retreivePalettes();
 mainPage.hidden = true;
 homePage.hidden = false;
 viewPalettePage.hidden = true;
+viewElementPage.hidden = true;
 closeEditModal()
 closeDeleteModal()
 
