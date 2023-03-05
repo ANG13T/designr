@@ -6,11 +6,12 @@ chrome.runtime.onMessage.addListener (
     function (request, sender, sendResponse) {
 		if (request.action == "initiateElementSelect") {
 			iniateElementSelect(request.data);
-		} else if (request.action == "clickElement") {
-			console.log("rc", request.data)
+		}  
+		
+		if (request.action == "clickElement") {
+			console.log("rc", request.data.props)
+			console.log("rc", request.data.css)
 		}
-
-		console.log(request)
     }
 );
 

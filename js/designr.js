@@ -544,50 +544,65 @@ function designrClick(e)
 	designr_element_cssDefinition = this.tagName.toLowerCase() + (this.id == '' ? '' : ' #' + this.id) + (this.className == '' ? '' : ' .' + this.className) + " {\n";
 
 	designr_element_cssDefinition += "\t/* Font & Text */\n"; 
-	for (var i = 0; i < designr_pFont.length; i++)
+	for (var i = 0; i < designr_pFont.length; i++) {
 		result[designr_pFont[i]] = element.getPropertyValue( designr_pFont[i] );
 		designr_element_cssDefinition += "\t" + designr_pFont[i] + ': ' + element.getPropertyValue( designr_pFont[i] ) + ";\n";
-
+	}
+		
 	designr_element_cssDefinition += "\n\t/* Color & Background */\n";
-	for (var i = 0; i < designr_pColorBg.length; i++)
+
+	for (var i = 0; i < designr_pColorBg.length; i++) {
 		result[designr_pColorBg[i]] = element.getPropertyValue(  designr_pColorBg[i] );
 		designr_element_cssDefinition += "\t" + designr_pColorBg[i] + ': ' + element.getPropertyValue( designr_pColorBg[i] ) + ";\n";
+	}
 
 	designr_element_cssDefinition += "\n\t/* Box */\n";
-	for (var i = 0; i < designr_pBox.length; i++)
+
+	for (var i = 0; i < designr_pBox.length; i++) {
 		result[designr_pBox[i]] = element.getPropertyValue(  designr_pBox[i] );
 		designr_element_cssDefinition += "\t" + designr_pBox[i] + ': ' + element.getPropertyValue( designr_pBox[i] ) + ";\n";
+	}
 
 	designr_element_cssDefinition += "\n\t/* Positioning */\n";
-	for (var i = 0; i < designr_pPositioning.length; i++)
+
+	for (var i = 0; i < designr_pPositioning.length; i++) {
 		result[designr_pPositioning[i]] = element.getPropertyValue(  designr_pPositioning[i] );
 		designr_element_cssDefinition += "\t" + designr_pPositioning[i] + ': ' + element.getPropertyValue( designr_pPositioning[i] ) + ";\n";
+	}
 
 	designr_element_cssDefinition += "\n\t/* List */\n";
-	for (var i = 0; i < designr_pList.length; i++)
+
+	for (var i = 0; i < designr_pList.length; i++) {
 		result[designr_pList[i]] = element.getPropertyValue(  designr_pList[i] );
 		designr_element_cssDefinition += "\t" + designr_pList[i] + ': ' + element.getPropertyValue( designr_pList[i] ) + ";\n";
+	}
 
 	designr_element_cssDefinition += "\n\t/* Table */\n";
-	for (var i = 0; i < designr_pTable.length; i++)
+
+	for (var i = 0; i < designr_pTable.length; i++) {
 		result[designr_pTable[i]] = element.getPropertyValue(  designr_pTable[i] );
 		designr_element_cssDefinition += "\t" + designr_pTable[i] + ': ' + element.getPropertyValue( designr_pTable[i] ) + ";\n";
-
+	}
+		
 	designr_element_cssDefinition += "\n\t/* Miscellaneous */\n";
-	for (var i = 0; i < designr_pMisc.length; i++)
+
+	for (var i = 0; i < designr_pMisc.length; i++) {
 		result[designr_pMisc[i] ] = element.getPropertyValue(  designr_pMisc[i]  );
 		designr_element_cssDefinition += "\t" + designr_pMisc[i] + ': ' + element.getPropertyValue( designr_pMisc[i] ) + ";\n";
+	}
 
 	designr_element_cssDefinition += "\n\t/* Effects */\n"; 
-	for (var i = 0; i < designr_pEffect.length; i++)
+
+	for (var i = 0; i < designr_pEffect.length; i++) {
 		result[designr_pEffect[i]] = element.getPropertyValue(  designr_pEffect[i]  );
 		designr_element_cssDefinition += "\t" + designr_pEffect[i] + ': ' + element.getPropertyValue( designr_pEffect[i] ) + ";\n";
-
+	}
+		
 	designr_element_cssDefinition += "}";
 
 	console.log( element.cssText ); 
 
-	chrome.runtime.sendMessage({ data: result, action: "clickElement" })
+	chrome.runtime.sendMessage({ data: {props: result, css: designr_element_cssDefinition}, action: "clickElement" })
 }
 
 function designrMouseOver(e)
