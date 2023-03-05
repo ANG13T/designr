@@ -144,9 +144,9 @@ function renderElementsPalette() {
             viewElementIndex = index;
             elementTitle.innerText = viewElement.title;
             viewElementPage.hidden = false;
-            // renderViewPalettePage();
-            // closeEditModal();
-            // closeDeleteModal();
+            renderViewElementsPage();
+            closeEditModal();
+            closeDeleteModal();
         })
     })
 }
