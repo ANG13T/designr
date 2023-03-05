@@ -37,6 +37,7 @@ const deleteOverlay = document.getElementById("delete-overlay");
 let paletteTableElementNone = document.getElementById("none-palette-element");
 let selectElementButton = document.getElementById("select-element-button");
 let paletteElementsTable = document.getElementById("paletteElementsTable");
+let elementTitle = document.getElementById("element-title");
 let elementTableContent = document.getElementById('paletteElementsTable').getElementsByTagName('tbody')[0];
 
 let palettes = [];
@@ -44,6 +45,9 @@ let selectedPalette = null;
 let selectedPaletteIndex = 0;
 let viewPalette = null;
 let viewPaletteIndex = null;
+
+let viewElement = null;
+let viewElementIndex = null;
 
 function setViewHome() {
     chrome.storage.sync.set({ "viewHome": "true" }, () => console.log("done"));
@@ -118,6 +122,27 @@ function renderElementsPalette() {
         paletteElementsTable.hidden = true;
         paletteTableElementNone.hidden = false;
     }
+
+    viewPalette.elementsData.forEach((pa, index) => {
+        let newRow = paletteTableContent.insertRow(index);
+        newRow.innerHTML = `
+            <tr>
+                <td class="elementTableRowBody index-${index} firstCol">${pa.title}</td>
+            </tr>
+        `;
+    });
+
+    document.querySelectorAll(".elementTableRowBody").forEach((tabBody) => {
+        tabBody.addEventListener("click", (el) => {
+            let index = Number(el.srcElement.classList[1].split('-')[1]);
+            viewElement = viewPalette.elementsData[index];
+            viewElementIndex = index;
+            elementTitle.innerText = viewElement.title;
+            // renderViewPalettePage();
+            // closeEditModal();
+            // closeDeleteModal();
+        })
+    })
 }
 
 function setPalettes(selectedPal) {
