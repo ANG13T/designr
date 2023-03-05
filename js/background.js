@@ -54,15 +54,23 @@ function selectElementClick(element) {
 		resultPal.forEach((pal) => {
 			if(pal.name == selectedPaletteName) {
 				if(pal.elementsData) {
-					pal.elementsData.push(element);
+					var contains = false;
+					pal.elementsData.forEach((eData) => {
+						if(eData.css == element.css) {
+							contains = true;
+						}
+					})
+
+					if (!contains) {
+						pal.elementsData.push(element);
+					}
 				} else {
 					pal.elementsData = [];
 				}
 			}
 		});
-
+		
 		chrome.storage.local.set({ palettes: resultPal })
-
     });
 }
 
