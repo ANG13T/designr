@@ -6,7 +6,11 @@ chrome.runtime.onMessage.addListener (
     function (request, sender, sendResponse) {
 		if (request.action == "initiateElementSelect") {
 			iniateElementSelect(request.data);
+		} else if (request.action == "clickElement") {
+			console.log("rc", request.data)
 		}
+
+		console.log(request)
     }
 );
 
@@ -39,6 +43,7 @@ function iniateElementSelect(tab) {
 
 	designrLoaded = true;
 }
+
 
 function cssCiewerDebugEl( info, tab )
 {

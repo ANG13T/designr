@@ -536,10 +536,13 @@ function UpdateEffects(element)
 
 function designrClick(e)
 {
-	e.stopPropagation();
 	var element = document.defaultView.getComputedStyle(this, null);
 	console.log("click something", element)
-	chrome.runtime.sendMessage({ data: element })
+	let result = {};
+	Object.keys(element).forEach((key) => {
+		result[key] = GetCSSProperty(element, key);
+	})
+	chrome.runtime.sendMessage({ data: result, action: "clickElement" })
 }
 
 function designrMouseOver(e)
