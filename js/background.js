@@ -1,14 +1,17 @@
 var designrLoaded              = false; 
 var cssCiewerContextMenusParent  = null;
+var selectedPaletteName = "";
 
 
 chrome.runtime.onMessage.addListener (
     function (request, sender, sendResponse) {
 		if (request.action == "initiateElementSelect") {
-			iniateElementSelect(request.data);
+			iniateElementSelect(request.data.tab);
+			selectedPaletteName = request.data.palette;
 		}  
 		
 		if (request.action == "clickElement") {
+			selectElementClick(request.data);
 			console.log("rc", request.data.props)
 			console.log("rc", request.data.css)
 		}
@@ -43,6 +46,24 @@ function iniateElementSelect(tab) {
 	chrome.tabs.insertCSS(tab.id, {file:'css/designr.css'});
 
 	designrLoaded = true;
+}
+
+function selectElementClick(element) {
+	chrome.storage.local.get({ palettes: [] }, function (result) {
+		let resultPal = result.palettes;
+		resultPal.forEach((pal) => {
+			if(pal.name == selectedPaletteName) {
+				if(pal.elementsData) {
+					pal.elementsData.push(element);
+				} else {
+					pal.elementsData = [];
+				}
+			}
+		});
+
+		chrome.storage.local.set({ palettes: resultPal })
+
+    });
 }
 
 

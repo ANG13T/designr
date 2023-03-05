@@ -541,6 +541,8 @@ function designrClick(e)
 
 	let result = {};
 
+	var designr_element_title = this.tagName.toLowerCase() + (this.id == '' ? '' : ' #' + this.id) + (this.className == '' ? '' : ' .' + this.className);
+
 	designr_element_cssDefinition = this.tagName.toLowerCase() + (this.id == '' ? '' : ' #' + this.id) + (this.className == '' ? '' : ' .' + this.className) + " {\n";
 
 	designr_element_cssDefinition += "\t/* Font & Text */\n"; 
@@ -602,7 +604,7 @@ function designrClick(e)
 
 	console.log( element.cssText ); 
 
-	chrome.runtime.sendMessage({ data: {props: result, css: designr_element_cssDefinition}, action: "clickElement" })
+	chrome.runtime.sendMessage({ data: {props: result, css: designr_element_cssDefinition, title: designr_element_title}, action: "clickElement" })
 }
 
 function designrMouseOver(e)

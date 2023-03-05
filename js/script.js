@@ -170,7 +170,8 @@ const createPalette = function (paletteName) {
         let newPalette = {
             name: paletteName,
             elements: 0,
-            createdDate: formattedDate
+            createdDate: formattedDate,
+            elementsData: []
         }
         palettes.push(newPalette);
         setPalettes(palettes);
@@ -295,7 +296,7 @@ selectElementButton.addEventListener("click", () => {
         active: true,
         currentWindow: true
     }, function(tabs) {
-        chrome.runtime.sendMessage({action: "initiateElementSelect", data: tabs[0]})
+        chrome.runtime.sendMessage({action: "initiateElementSelect", data: {tab: tabs[0], palette: viewPalette.name}})
     });
 })
 
