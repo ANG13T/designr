@@ -90,7 +90,7 @@ function renderPalettes(selectedPal) {
             <tr>
                 <td class="paletteTableRowBody index-${index} firstCol">${pa.name}</td>
                 <td class="paletteTableRowBody index-${index}">${pa.createdDate}</td>
-                <td class="paletteTableRowBody index-${index}">${pa.elements}</td>
+                <td class="paletteTableRowBody index-${index}">${pa.elementsData.length}</td>
             </tr>
         `;
     });
@@ -227,7 +227,6 @@ const createPalette = function (paletteName) {
         let formattedDate = dateString();
         let newPalette = {
             name: paletteName,
-            elements: 0,
             createdDate: formattedDate,
             elementsData: []
         }
