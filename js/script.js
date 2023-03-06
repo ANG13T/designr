@@ -38,10 +38,24 @@ let viewElementPage = document.getElementById("view-element");
 let paletteTableElementNone = document.getElementById("none-palette-element");
 let selectElementButton = document.getElementById("select-element-button");
 let backElementButton = document.getElementById("back-element-button");
+let editElementButton = document.getElementById("edit-element-button");
+let deleteElementButton = document.getElementById("delete-element-button");
 let paletteElementsTable = document.getElementById("paletteElementsTable");
 let paletteElementsTableContainer = document.getElementById("elmentTableContainer");
 let elementTitle = document.getElementById("element-title");
 let elementTableContent = document.getElementById('paletteElementsTable').getElementsByTagName('tbody')[0];
+
+const editElementModal = document.getElementById("edit-element-modal");
+const editElementCloseModalButton = document.getElementById("btn-close-edit-element");
+const editElementTextInput = document.getElementById("elementNameEditInput");
+let confirmEditElementButton = document.getElementById("edit-element-modal");
+const editElementOverlay = document.getElementById("edit-element-overlay");
+
+const deleteElementModal = document.getElementById("delete-element-modal");
+const openDeleteElementModalButton = document.getElementById("delete-element-button");
+const deleteElementModalConfirmButton = document.getElementById("delete-element-modal");
+const deleteElementCloseModalButton = document.getElementById("btn-close-delete-element");
+const deleteElementOverlay = document.getElementById("delete-element-overlay");
 
 let palettes = [];
 let selectedPalette = null;
@@ -188,6 +202,27 @@ function openEditModal() {
     editPaletteTextInput.value = viewPalette.name;
     editModal.classList.remove('hidden');
     editOverlay.classList.remove('hidden');
+}
+
+function openEditElementModal() {
+    editElementTextInput.value = viewElement.title;
+    editElementModal.classList.remove('hidden');
+    editElementOverlay.classList.remove('hidden');
+}
+
+function openDeleteElementModal () {
+    deleteElementModal.classList.add('hidden');
+    deleteElementOverlay.classList.add('hidden');
+}
+
+function closeEditElementModal() {
+    editElementModal.classList.add('hidden');
+    editElementOverlay.classList.add('hidden');
+}
+
+function closeDeleteElementModal () {
+    deleteElementModal.classList.remove('hidden');
+    deleteElementOverlay.classList.remove('hidden');
 }
 
 const closeEditModal = function () {
@@ -342,6 +377,14 @@ backElementButton.addEventListener("click", () => {
 
 editPaletteButton.addEventListener("click", () => {
     openEditModal();
+})
+
+editElementButton.addEventListener("click", () => {
+    openEditElementModal();
+})
+
+deleteElementButton.addEventListener("click", () => {
+    openDeleteElementModal();
 })
 
 editCloseModalButton.addEventListener("click", () => {

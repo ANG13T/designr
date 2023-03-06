@@ -378,11 +378,11 @@
     margin-top: 6.5px;
   }
 
-  #view-element .back-button {
+  #view-element .back-button, #edit-element-button, #delete-element-button {
     transition: 0.4s;
   }
 
-  #view-element .back-button:hover {
+  #view-element .back-button:hover, #edit-element-button:hover, #delete-element-button:hover {
     color: #343435;
     background-color: white;
   }
