@@ -53,7 +53,7 @@ const editElementOverlay = document.getElementById("edit-element-overlay");
 
 const deleteElementModal = document.getElementById("delete-element-modal");
 const openDeleteElementModalButton = document.getElementById("delete-element-button");
-const deleteElementModalConfirmButton = document.getElementById("delete-element-modal");
+const deleteElementModalConfirmButton = document.getElementById("delete-element-button-confirm");
 const deleteElementCloseModalButton = document.getElementById("btn-close-delete-element");
 const deleteElementOverlay = document.getElementById("delete-element-overlay");
 
@@ -400,6 +400,10 @@ deleteElementCloseModalButton.addEventListener("click", () => {
 confirmEditPaletteButton.addEventListener("click", () => {
     editPalette(editPaletteTextInput.value)
 })
+
+editElementCloseModalButton.addEventListener("click", () => {
+    closeEditElementModal();
+ })
 
 openDeleteModalButton.addEventListener("click", () => {
     openDeleteModal();

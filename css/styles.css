@@ -325,7 +325,7 @@
     background-color: #343435;
   }
 
-  #paletteLabel {
+  #paletteLabel, #elementLabel {
     text-align: left;
     font-weight: bold;
     color: #2e2f31;
