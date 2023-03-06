@@ -233,7 +233,7 @@ const createPalette = function (paletteName) {
         }
         palettes.push(newPalette);
         setPalettes(palettes);
-        retreivePalettes();
+        renderPalettes(palettes);
         closeModal()
     } else {
         paletteNameInput.classList.add("error");
