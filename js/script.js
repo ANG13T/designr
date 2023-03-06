@@ -317,7 +317,7 @@ startButton.addEventListener('click', function () {
     mainPage.hidden = false;
     homePage.hidden = true;
     paletteElementsTable.hidden = true;
-    paletteTableNone.hidden = true;
+    paletteTableNone.hidden = false;
 });
 
 
