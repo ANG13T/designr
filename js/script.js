@@ -38,6 +38,7 @@ let viewElementPage = document.getElementById("view-element");
 let paletteTableElementNone = document.getElementById("none-palette-element");
 let selectElementButton = document.getElementById("select-element-button");
 let paletteElementsTable = document.getElementById("paletteElementsTable");
+let paletteElementsTableContainer = document.getElementById("elmentTableContainer");
 let elementTitle = document.getElementById("element-title");
 let elementTableContent = document.getElementById('paletteElementsTable').getElementsByTagName('tbody')[0];
 
@@ -112,18 +113,18 @@ function renderPalettes(selectedPal) {
 function renderViewPalettePage() {
     mainPage.hidden = true;
     viewPalettePage.hidden = false;
-    paletteElementsTable.hidden = true;
+    paletteElementsTableContainer.hidden = true;
     renderElementsPalette();
 }
 
 function renderElementsPalette() {
     removeElementRows();
     if (viewPalette.elementsData && viewPalette.elementsData.length > 0) {
-       paletteElementsTable.hidden = false;
+        paletteElementsTableContainer.hidden = false;
        console.log("te")
        paletteTableElementNone.hidden = true;
     } else {
-        paletteElementsTable.hidden = true;
+        paletteElementsTableContainer.hidden = true;
         paletteTableElementNone.hidden = false;
     }
 
@@ -318,7 +319,7 @@ startButton.addEventListener('click', function () {
     setViewHome();
     mainPage.hidden = false;
     homePage.hidden = true;
-    paletteElementsTable.hidden = true;
+    paletteElementsTableContainer.hidden = true;
     paletteTableNone.hidden = false;
 });
 
