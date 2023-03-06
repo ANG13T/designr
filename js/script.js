@@ -65,15 +65,16 @@ async function getViewHome() {
 }
 
 async function retreivePalettes() {
+    paletteTableNone.hidden = false;
     chrome.storage.local.get({ palettes: [] }, function (result) {
         let resultPal = result.palettes;
         palettes = resultPal;
 
         if (resultPal.length > 0) {
             renderPalettes(resultPal);
+            paletteTableNone.hidden = true;
         } else {
             paletteTable.hidden = true;
-            paletteTableNone.hidden = false;
         }
     });
 }
