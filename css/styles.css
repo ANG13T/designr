@@ -362,7 +362,7 @@
     display: none;
   }
 
-  #view-palette .palette-title{
+  #view-palette .palette-title, #view-element .palette-title {
     color: white;
     text-align: left;
     margin-left: 13px;
@@ -372,10 +372,19 @@
     margin-top: 0px;
   }
 
-  #view-palette .front-section {
+  #view-palette .front-section, #view-element .front-section {
     display: flex;
     align-items: center;
     margin-top: 6.5px;
+  }
+
+  #view-element .back-button {
+    transition: 0.4s;
+  }
+
+  #view-element .back-button:hover {
+    color: #343435;
+    background-color: white;
   }
 
   /* Elements View Display */

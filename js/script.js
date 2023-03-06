@@ -37,6 +37,7 @@ const deleteOverlay = document.getElementById("delete-overlay");
 let viewElementPage = document.getElementById("view-element");
 let paletteTableElementNone = document.getElementById("none-palette-element");
 let selectElementButton = document.getElementById("select-element-button");
+let backElementButton = document.getElementById("back-element-button");
 let paletteElementsTable = document.getElementById("paletteElementsTable");
 let paletteElementsTableContainer = document.getElementById("elmentTableContainer");
 let elementTitle = document.getElementById("element-title");
@@ -130,13 +131,13 @@ function renderElementsPalette() {
 
     viewPalette.elementsData.forEach((pa, index) => {
         let newRow = elementTableContent.insertRow(index);
-        let elementTitle = pa.title;
-        if(elementTitle.length > 46) {
-            elementTitle = elementTitle.substring(0, 46).concat('...')
+        let elementTitleText = pa.title;
+        if(elementTitleText.length > 46) {
+            elementTitleText = elementTitleText.substring(0, 46).concat('...')
         } 
         newRow.innerHTML = `
             <tr>
-                <td class="elementTableRowBody index-${index} firstCol">${elementTitle}</td>
+                <td class="elementTableRowBody index-${index} firstCol">${elementTitleText}</td>
             </tr>
         `;
     });
@@ -146,7 +147,11 @@ function renderElementsPalette() {
             let index = Number(el.srcElement.classList[1].split('-')[1]);
             viewElement = viewPalette.elementsData[index];
             viewElementIndex = index;
-            elementTitle.innerText = viewElement.title;
+            let displayText = viewElement.title;
+            if(displayText.length > 46) {
+                displayText = displayText.substring(0, 46).concat('...')
+            } 
+            elementTitle.innerText = displayText;
             viewElementPage.hidden = false;
             renderViewElementsPage();
             closeEditModal();
@@ -328,6 +333,11 @@ paletteBackButton.addEventListener("click", () => {
     mainPage.hidden = false;
     viewPalettePage.hidden = true;
     retreivePalettes()
+})
+
+backElementButton.addEventListener("click", () => {
+    viewPalettePage.hidden = false;
+    viewElementPage.hidden = true;
 })
 
 editPaletteButton.addEventListener("click", () => {
