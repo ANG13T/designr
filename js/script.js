@@ -80,6 +80,7 @@ async function retreivePalettes() {
 }
 
 function renderPalettes(selectedPal) {
+    console.log("sek", selectedPal)
     removePaletteRows();
     if (selectedPal.length > 0) {
         paletteTableNone.hidden = true;
@@ -119,6 +120,7 @@ function renderElementsPalette() {
     removeElementRows();
     if (viewPalette.elementsData && viewPalette.elementsData.length > 0) {
        paletteElementsTable.hidden = false;
+       console.log("te")
        paletteTableElementNone.hidden = true;
     } else {
         paletteElementsTable.hidden = true;
@@ -232,6 +234,7 @@ const createPalette = function (paletteName) {
         }
         palettes.push(newPalette);
         setPalettes(palettes);
+        paletteTable.hidden = false;
         renderPalettes(palettes);
         closeModal()
     } else {
