@@ -211,8 +211,8 @@ function openEditElementModal() {
 }
 
 function openDeleteElementModal () {
-    deleteElementModal.classList.add('hidden');
-    deleteElementOverlay.classList.add('hidden');
+    deleteElementModal.classList.remove('hidden');
+    deleteElementOverlay.classList.remove('hidden');
 }
 
 function closeEditElementModal() {
@@ -221,8 +221,8 @@ function closeEditElementModal() {
 }
 
 function closeDeleteElementModal () {
-    deleteElementModal.classList.remove('hidden');
-    deleteElementOverlay.classList.remove('hidden');
+    deleteElementModal.classList.add('hidden');
+    deleteElementOverlay.classList.add('hidden');
 }
 
 const closeEditModal = function () {
@@ -320,6 +320,8 @@ viewPalettePage.hidden = true;
 viewElementPage.hidden = true;
 closeEditModal()
 closeDeleteModal()
+closeEditElementModal()
+closeDeleteElementModal()
 
 async function updatePaletteUI() {
     await retreivePalettes();
@@ -389,6 +391,10 @@ deleteElementButton.addEventListener("click", () => {
 
 editCloseModalButton.addEventListener("click", () => {
     closeEditModal();
+})
+
+deleteElementCloseModalButton.addEventListener("click", () => {
+   closeDeleteElementModal();
 })
 
 confirmEditPaletteButton.addEventListener("click", () => {
