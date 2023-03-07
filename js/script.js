@@ -300,11 +300,12 @@ const editPalette = function (paletteName) {
 const editElement = function (elementName) {
     editElementTextInput.classList.remove("error");
     if (elementName.length > 0 && elementName.length < 61) {
-        viewElement.name = elementName;
-        editElementTextInput.innerText = elementName;
-        viewPalette[viewPaletteIndex].elementsData[viewElementIndex] = viewElement;
+        viewElement.title = elementName;
+        elementTitle.innerText = elementName;
+        viewPalette.elementsData[viewElementIndex] = viewElement;
         palettes[viewPaletteIndex] = viewPalette;
         setPalettes(palettes);
+        console.log("pals", palettes)
         closeEditElementModal()
     } else {
         editElementTextInput.classList.add("error");
