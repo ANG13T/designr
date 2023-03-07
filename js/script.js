@@ -259,6 +259,9 @@ function dateString() {
     var date = a.getDate();
     var hour = a.getHours();
     var min = a.getMinutes();
+    if (min < 10) {
+        min = "0" + a.getMinutes();
+    }
     var time = month + ' ' + date + ' ' + year + ' ' + hour + ':' + min;
     return time;
 }
@@ -461,11 +464,3 @@ selectElementButton.addEventListener("click", () => {
         window.close();
     });
 })
-
-// Start of Context Code
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log(message, "yipee");
-    
-});
-    
