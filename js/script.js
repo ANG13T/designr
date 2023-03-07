@@ -48,7 +48,7 @@ let elementTableContent = document.getElementById('paletteElementsTable').getEle
 const editElementModal = document.getElementById("edit-element-modal");
 const editElementCloseModalButton = document.getElementById("btn-close-edit-element");
 const editElementTextInput = document.getElementById("elementNameEditInput");
-let confirmEditElementButton = document.getElementById("edit-element-modal");
+let confirmEditElementButton = document.getElementById("edit-element-modal-confirm");
 const editElementOverlay = document.getElementById("edit-element-overlay");
 
 const deleteElementModal = document.getElementById("delete-element-modal");
@@ -162,8 +162,8 @@ function renderElementsPalette() {
             viewElement = viewPalette.elementsData[index];
             viewElementIndex = index;
             let displayText = viewElement.title;
-            if(displayText.length > 46) {
-                displayText = displayText.substring(0, 46).concat('...')
+            if(displayText.length > 23) {
+                displayText = displayText.substring(0, 23).concat('...')
             } 
             elementTitle.innerText = displayText;
             viewElementPage.hidden = false;
@@ -297,6 +297,20 @@ const editPalette = function (paletteName) {
     }
 }
 
+const editElement = function (elementName) {
+    editElementTextInput.classList.remove("error");
+    if (elementName.length > 0 && elementName.length < 61) {
+        viewElement.name = elementName;
+        editElementTextInput.innerText = elementName;
+        viewPalette[viewPaletteIndex].elementsData[viewElementIndex] = viewElement;
+        palettes[viewPaletteIndex] = viewPalette;
+        setPalettes(palettes);
+        closeEditElementModal()
+    } else {
+        editElementTextInput.classList.add("error");
+    }
+}
+
 
 const deletePalette = function () {
     palettes = palettes.filter(function( pal ) {
@@ -389,8 +403,16 @@ deleteElementButton.addEventListener("click", () => {
     openDeleteElementModal();
 })
 
+confirmEditElementButton.addEventListener("click", () => {
+    editElement(editElementTextInput.value)
+})
+
 editCloseModalButton.addEventListener("click", () => {
     closeEditModal();
+})
+
+deleteElementModalConfirmButton.addEventListener("click", () => {
+    // TODO
 })
 
 deleteElementCloseModalButton.addEventListener("click", () => {
