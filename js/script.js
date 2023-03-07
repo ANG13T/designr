@@ -323,6 +323,17 @@ const deletePalette = function () {
     retreivePalettes();
 }
 
+const deleteElement = function () {
+    palettes = palettes[viewPaletteIndex].elementsData.filter(function( elm ) {
+        return elm.css !== viewElement.css && elm.title !== viewElement.title;
+    });
+    closeDeleteElementModal();
+    viewElementPage.hidden = true;
+    viewPalettePage.hidden = false;
+    setPalettes(palettes);
+    retreivePalettes();
+}
+
 
 getViewHome();
 updatePaletteUI();
@@ -412,7 +423,7 @@ editCloseModalButton.addEventListener("click", () => {
 })
 
 deleteElementModalConfirmButton.addEventListener("click", () => {
-    // TODO
+    deleteElement();
 })
 
 deleteElementCloseModalButton.addEventListener("click", () => {
