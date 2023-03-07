@@ -323,14 +323,16 @@ const deletePalette = function () {
 }
 
 const deleteElement = function () {
-    palettes = palettes[viewPaletteIndex].elementsData.filter(function( elm ) {
+    viewPalette.elementsData = viewPalette.elementsData.filter(function( elm ) {
         return elm.css !== viewElement.css && elm.title !== viewElement.title;
     });
+
+    palettes[viewPaletteIndex] = viewPalette;
     closeDeleteElementModal();
     viewElementPage.hidden = true;
     viewPalettePage.hidden = false;
     setPalettes(palettes);
-    retreivePalettes();
+    renderElementsPalette();
 }
 
 
