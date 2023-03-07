@@ -136,7 +136,6 @@ function renderElementsPalette() {
     removeElementRows();
     if (viewPalette.elementsData && viewPalette.elementsData.length > 0) {
         paletteElementsTableContainer.hidden = false;
-       console.log("te")
        paletteTableElementNone.hidden = true;
     } else {
         paletteElementsTableContainer.hidden = true;
@@ -305,7 +304,6 @@ const editElement = function (elementName) {
         viewPalette.elementsData[viewElementIndex] = viewElement;
         palettes[viewPaletteIndex] = viewPalette;
         setPalettes(palettes);
-        console.log("pals", palettes)
         closeEditElementModal()
     } else {
         editElementTextInput.classList.add("error");
@@ -401,6 +399,7 @@ paletteBackButton.addEventListener("click", () => {
 backElementButton.addEventListener("click", () => {
     viewPalettePage.hidden = false;
     viewElementPage.hidden = true;
+    renderElementsPalette();
 })
 
 editPaletteButton.addEventListener("click", () => {
