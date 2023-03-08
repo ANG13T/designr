@@ -3,7 +3,6 @@
 <html>
 
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -193,30 +192,19 @@
                 </div>
             </div>
 
-            
-            <div id='container'>
-                <div id='editors'>
-                    <div class = 'fa fa-html5 htmlLabel' style="font-size:23px;color:red" id = 'labels'>
-                        <button type="button" class="button minButton" onclick="minimizeIframe()"><i class='fa fa-window-minimize'></i></button>
-                        <span id='text'>HTML</span>
-                    </div>
-                    <div class = 'fa fa-css3 cssLabel' style="font-size:23px;color:red" id='labels'>
-                        <span id='text'>CSS</span>
-                    </div>
-                    <div class = 'fa fa-jsfiddle jsLabel' style="font-size:23px;color:red" id='labels'>
-                        <button type="button" class="button downloadCode" onclick="downloadCode()"><i class='fa fa-download'></i></button>
-                        <span id='text'>Javascript</span>
-                        <button type="button" class="button maxButton" onclick="maximizeIFrame()"><i class='fa fa-window-maximize'></i></button>
-                    </div>
-    
-                    <div class='editor' id='htmlEditor'></div>
-                    <div class='editor' id='cssEditor'></div>
-                    <div class='editor' id='jsEditor'></div>
+            <div id="report-css">
+                <div class="flex flex-none push--bottom">
+                  <h3>Combined CSS<span id="line-length"></span></h2>
+                  <button class="btn btn--small btn--disabled js-css-reset anchor--right">Reset</button>
                 </div>
-        
-                <iframe id='iframe' frameBorder="0">
-                </iframe>
-            </div>
+                <div class="content">
+                  <pre id="css-code">
+                    .test {
+                        color: red;
+                    }
+                  </pre>
+                </div>
+              </div>
             
 
             <section class="modal" id="edit-element-modal">
