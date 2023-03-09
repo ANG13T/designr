@@ -176,7 +176,6 @@ function renderElementsPalette() {
 function renderViewElementsPage() {
     viewPalettePage.hidden = true;
     viewElementPage.hidden = false;
-    ready();
 }
 
 function setPalettes(selectedPal) {
@@ -577,14 +576,6 @@ function loadJSEditor() {
 
     jsEditor.setShowPrintMargin(false);
     //htmlEditor.setBehavioursEnabled(false);
-}
-function setupEditor() {
-    loadHTMLEditor();
-    loadCSSEditor();
-    loadJSEditor();
-}
-function ready() {
-    setupEditor();
 }
 
 function maximizeIFrame() {
