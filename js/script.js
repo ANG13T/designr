@@ -353,8 +353,8 @@ closeEditElementModal()
 closeDeleteElementModal()
 
 var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
-    mode: "htmlmixed",
-    tabSize: 4,
+    mode: "css",
+    tabSize: 2,
     lineNumbers: true,
     extraKeys: { "Ctrl-Space": "autocomplete" }
 });
@@ -484,98 +484,6 @@ function update() {
     //getting value from editor and puts in the iframe
     code.write(getUserCode());
     code.close();
-}
-function loadHTMLEditor() {
-    defaultHTMLValue = "<!DOCTYPE html>\n\n<html>\n\n    <!-- Your HTML code goes right here -->\n\n</html>"
-    //tells ace editor to use editor element , window.editor makes it global in the javascript file
-    window.htmlEditor = ace.edit("htmlEditor");
-    //mode mode
-    htmlEditor.setTheme("ace/theme/dracula");
-    //html mode
-    htmlEditor.getSession().setMode("ace/mode/html");
-    //sample text
-    htmlEditor.setValue(defaultHTMLValue,1); //1 = moves cursor to end
-    // when something changed in editor update is called
-    htmlEditor.getSession().on('change', function() {
-        update();
-    });
-    // puts cursor in the editor
-    htmlEditor.focus();
-    
-    //htmlEditor.setOption('showLineNumbers', true);
-    htmlEditor.setOptions({
-        fontSize: "12.5pt",
-        showLineNumbers: true,
-        vScrollBarAlwaysVisible:false,
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: false
-    });
-
-    htmlEditor.setShowPrintMargin(false);
-    //htmlEditor.setBehavioursEnabled(false);
-}
-function loadCSSEditor() {
-    defaultCSSValue = "/*        Your CSS Code Goes Here           */"
-    //tells ace editor to use editor element , window.editor makes it global in the javascript file
-    window.cssEditor = ace.edit("cssEditor");
-    cssEditor.resize();
-    cssEditor.renderer.updateFull();
-    //mode mode
-    cssEditor.setTheme("ace/theme/dracula");
-    //html mode
-    cssEditor.getSession().setMode("ace/mode/css");
-    //sample text
-    cssEditor.setValue(defaultCSSValue,1); //1 = moves cursor to end
-    // when something changed in editor update is called
-    cssEditor.getSession().on('change', function() {
-        update();
-    });
-    // puts cursor in the editor
-    cssEditor.focus();
-
-    //htmlEditor.setOption('showLineNumbers', true);
-    cssEditor.setOptions({
-        fontSize: "12.5pt",
-        showLineNumbers: true,
-        vScrollBarAlwaysVisible:true,
-        // enableBasicAutocompletion: true,
-        // enableSnippets: true,
-        // enableLiveAutocompletion: false
-    });
-
-    cssEditor.setShowPrintMargin(false);
-    //cssEditor.setBehavioursEnabled(false);
-}
-function loadJSEditor() {
-    defaultJSValue = "/*     Your JAVASCRIPT Code Goes Here       */"
-    //tells ace editor to use editor element , window.editor makes it global in the javascript file
-    window.jsEditor = ace.edit("jsEditor");
-    //mode mode
-    jsEditor.setTheme("ace/theme/dracula");
-    //html mode
-    jsEditor.getSession().setMode("ace/mode/javascript");
-    //sample text
-    jsEditor.setValue(defaultJSValue,1); //1 = moves cursor to end
-    // when something changed in editor update is called
-    jsEditor.getSession().on('change', function() {
-        update();
-    });
-    // puts cursor in the editor
-    jsEditor.focus();
-    
-    //htmlEditor.setOption('showLineNumbers', true);
-    jsEditor.setOptions({
-        fontSize: "12.5pt",
-        showLineNumbers: true,
-        vScrollBarAlwaysVisible:true,
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: false
-    });
-
-    jsEditor.setShowPrintMargin(false);
-    //htmlEditor.setBehavioursEnabled(false);
 }
 
 function maximizeIFrame() {
