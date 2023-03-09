@@ -1,0 +1,48 @@
+body{
+    height: 100vh;
+}
+.gutter{
+    height: 100%;
+    background: rgb(181, 187, 194);
+    cursor: e-resize;
+}
+.navbar{
+    border-radius:0 !important
+}
+.navbar{
+    margin : 0 !important; 
+}
+.navbar-inverse .navbar-nav>li>a{
+    color: white;
+}
+a:hover{
+    border-color: #337ab7;
+}
+.navbar-nav>li>.dropdown-menu{
+    background-color: black;
+}
+.dropdown-menu>li>a  {
+    color: white;
+}
+.editor{
+    width: 100%;
+    height: 97%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background: rgb(41, 40, 40);
+}
+.code{
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    border: 1px solid;
+}
+.editor .code iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: white;
+    
+}

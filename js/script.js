@@ -353,6 +353,14 @@ closeDeleteModal()
 closeEditElementModal()
 closeDeleteElementModal()
 
+var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
+    mode: "htmlmixed",
+    tabSize: 4,
+    lineNumbers: true,
+    extraKeys: { "Ctrl-Space": "autocomplete" }
+});
+CodeMirror.commands["selectAll"](htmlEditor);
+
 async function updatePaletteUI() {
     await retreivePalettes();
 }
