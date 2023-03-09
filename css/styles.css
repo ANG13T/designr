@@ -431,3 +431,7 @@
   height: 100%;
   border: 1px solid;
 }
+
+.code-section .title {
+  color: white;
+}
