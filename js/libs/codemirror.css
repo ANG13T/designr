@@ -6,6 +6,7 @@
     height: 100%;
     color: rgb(255, 254, 254);
     direction: ltr;
+    text-align: left !important;
   }
   
   /* PADDING */
@@ -253,6 +254,7 @@
     -webkit-tap-highlight-color: transparent;
     -webkit-font-variant-ligatures: contextual;
     font-variant-ligatures: contextual;
+    padding-left: 40px;
   }
   .CodeMirror-wrap pre.CodeMirror-line,
   .CodeMirror-wrap pre.CodeMirror-line-like {
