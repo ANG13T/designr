@@ -356,7 +356,7 @@ var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), 
     mode: "css",
     tabSize: 2,
     lineNumbers: true,
-    extraKeys: { "Ctrl-Space": "autocomplete" }
+    enableCodeFormatting: false
 });
 CodeMirror.commands["selectAll"](htmlEditor);
 

@@ -12,28 +12,19 @@
   /* PADDING */
   
   .CodeMirror-lines {
-    padding: 4px 0; /* Vertical padding around content */
+    /* padding: 4px 0;  */
+    /* Vertical padding around content */
   }
-  .CodeMirror pre.CodeMirror-line,
-  .CodeMirror pre.CodeMirror-line-like {
-    padding: 0 4px; /* Horizontal padding of content */
-  }
-  
+
   .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
     background-color: white; /* The little square between H and V scrollbars */
   }
   
   /* GUTTER */
   
-  .CodeMirror-gutters {
-    border-right: 1px solid #ddd;
-    background-color: black;
-    white-space: nowrap;
-  }
-  
   .CodeMirror-linenumber {
     padding: 0 3px 0 5px;
-    min-width: 20px;
+    min-width: 16px;
     text-align: right;
     color: #999;
     white-space: nowrap;
@@ -160,10 +151,9 @@
   }
   
   .CodeMirror-scroll {
-    overflow: scroll !important; /* Things will break if this is overridden */
-    /* 50px is the magic margin used to hide the element's real scrollbars */
-    /* See overflow: hidden in .CodeMirror */
-    margin-bottom: -50px; margin-right: -50px;
+    overflow: scroll !important; 
+    margin-bottom: -50px;
+     /* margin-right: -50px; */
     padding-bottom: 50px;
     height: 100%;
     outline: none; /* Prevent dragging from highlighting the element */
@@ -171,6 +161,7 @@
   }
   .CodeMirror-sizer {
     position: relative;
+    margin-left: 7px !important;
     border-right: 50px solid transparent;
   }
   
@@ -212,12 +203,12 @@
     vertical-align: top;
     margin-bottom: -50px;
   }
-  .CodeMirror-gutter-wrapper {
+  /* .CodeMirror-gutter-wrapper {
     position: absolute;
     z-index: 4;
     background: none !important;
     border: none !important;
-  }
+  } */
   .CodeMirror-gutter-background {
     position: absolute;
     top: 0; bottom: 0;
@@ -256,13 +247,13 @@
     font-variant-ligatures: contextual;
     padding-left: 40px;
   }
-  .CodeMirror-wrap pre.CodeMirror-line,
+  /* .CodeMirror-wrap pre.CodeMirror-line,
   .CodeMirror-wrap pre.CodeMirror-line-like {
     word-wrap: break-word;
     white-space: pre-wrap;
     word-break: normal;
   }
-  
+   */
   .CodeMirror-linebackground {
     position: absolute;
     left: 0; right: 0; top: 0; bottom: 0;
