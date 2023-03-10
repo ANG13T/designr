@@ -423,8 +423,13 @@
 /*  */
 .editor {
   width: 100%;
-  height: 70vh;
+  height: 68vh;
+  overflow-y: scroll;
   background: rgb(41, 40, 40);
+}
+
+.code-display {
+  min-height: 200px;
 }
 
 .code {

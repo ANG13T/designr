@@ -352,13 +352,19 @@ closeDeleteModal()
 closeEditElementModal()
 closeDeleteElementModal()
 
+var minLines = 3;
+var startingValue = '';
+for (var i = 0; i < minLines; i++) {
+    startingValue += '\n';
+}
+
 var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
     mode: "css",
     tabSize: 2,
     lineNumbers: true,
-    enableCodeFormatting: false
+    enableCodeFormatting: false,
+    value: startingValue
 });
-CodeMirror.commands["selectAll"](htmlEditor);
 
 async function updatePaletteUI() {
     await retreivePalettes();
@@ -484,45 +490,6 @@ function update() {
     //getting value from editor and puts in the iframe
     code.write(getUserCode());
     code.close();
-}
-
-function maximizeIFrame() {
-    //First make Iframe height larger
-    let iframe = document.getElementById("iframe");
-    iframe.style.height = "98%";
-    iframe.style.width = "100%";
-    //Next equate all 3 editors dimensions to 0
-    let htmlEditor = document.getElementById("htmlEditor");
-    htmlEditor.style.height = "0%";
-    htmlEditor.style.width = "0%";
-    let cssEditor = document.getElementById("cssEditor");
-    cssEditor.style.height = "0%";
-    cssEditor.style.width = "0%";
-    let jsEditor = document.getElementById("jsEditor");
-    jsEditor.style.height = "0%";
-    jsEditor.style.width = "0%";
-    //Make editors height 5% which has labels and buttons
-    let allEditors = document.getElementById("editors");
-    allEditors.style.height = "5%";
-    allEditors.style.width = "100%";
-}
-function minimizeIframe() {
-    //Going in reverse order from maximizeFrame() to reset all elements to their original dimensions
-    let editors = document.getElementById("editors");
-    editors.style.height = "50%";
-    editors.style.width = "100%";
-    let htmlEditor = document.getElementById("htmlEditor");
-    htmlEditor.style.height = "90%";
-    htmlEditor.style.width = "32%";
-    let cssEditor = document.getElementById("cssEditor");
-    cssEditor.style.height = "90%";
-    cssEditor.style.width = "32%";
-    let jsEditor = document.getElementById("jsEditor");
-    jsEditor.style.height = "90%";
-    jsEditor.style.width = "32%";
-    var iframe = document.getElementById("iframe");
-    iframe.style.height = "50%";
-    iframe.style.width = "100%";
 }
 
 //Download Code File
