@@ -446,6 +446,7 @@
   display: flex;
   justify-content: space-between;
   padding: 1.2rem;
+  padding-top: 1rem;
   padding-bottom: 0.3rem;
 }
 
@@ -453,9 +454,13 @@
   color: white;
   border: 1.5px solid white;
   border-radius: 4px;
-  height: 2.4rem;
-  width: 2.4rem;
-  font-size: 15px;
+  height: 1.8rem;
+  width: 1.8rem;
+  font-size: 12px;
   background: transparent;
   padding: 5px;
+}
+
+.code-title {
+  margin-top: 10px;
 }

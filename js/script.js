@@ -358,13 +358,19 @@ for (var i = 0; i < minLines; i++) {
     startingValue += '\n';
 }
 
+startingValue += '.text {}'
+
+
 var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
     mode: "css",
     tabSize: 2,
     lineNumbers: true,
     enableCodeFormatting: false,
-    value: startingValue
+    value: startingValue,
+    autoClearEmptyLines: true
 });
+
+htmlEditor.setValue(startingValue)
 
 async function updatePaletteUI() {
     await retreivePalettes();
