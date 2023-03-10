@@ -136,7 +136,7 @@ function renderElementsPalette() {
     removeElementRows();
     if (viewPalette.elementsData && viewPalette.elementsData.length > 0) {
         paletteElementsTableContainer.hidden = false;
-       paletteTableElementNone.hidden = true;
+        paletteTableElementNone.hidden = true;
     } else {
         paletteElementsTableContainer.hidden = true;
         paletteTableElementNone.hidden = false;
@@ -145,9 +145,9 @@ function renderElementsPalette() {
     viewPalette.elementsData.forEach((pa, index) => {
         let newRow = elementTableContent.insertRow(index);
         let elementTitleText = pa.title;
-        if(elementTitleText.length > 46) {
+        if (elementTitleText.length > 46) {
             elementTitleText = elementTitleText.substring(0, 46).concat('...')
-        } 
+        }
         newRow.innerHTML = `
             <tr>
                 <td class="elementTableRowBody index-${index} firstCol">${elementTitleText}</td>
@@ -161,14 +161,28 @@ function renderElementsPalette() {
             viewElement = viewPalette.elementsData[index];
             viewElementIndex = index;
             let displayText = viewElement.title;
-            if(displayText.length > 23) {
+            if (displayText.length > 23) {
                 displayText = displayText.substring(0, 23).concat('...')
-            } 
+            }
             elementTitle.innerText = displayText;
             viewElementPage.hidden = false;
             renderViewElementsPage();
             closeEditModal();
             closeDeleteModal();
+
+            startingValue += viewElement.css;
+
+
+            var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
+                mode: "css",
+                tabSize: 2,
+                lineNumbers: true,
+                enableCodeFormatting: false,
+                value: startingValue,
+                autoClearEmptyLines: true
+            });
+
+            htmlEditor.setValue(startingValue)
         })
     })
 }
@@ -209,7 +223,7 @@ function openEditElementModal() {
     editElementOverlay.classList.remove('hidden');
 }
 
-function openDeleteElementModal () {
+function openDeleteElementModal() {
     deleteElementModal.classList.remove('hidden');
     deleteElementOverlay.classList.remove('hidden');
 }
@@ -219,7 +233,7 @@ function closeEditElementModal() {
     editElementOverlay.classList.add('hidden');
 }
 
-function closeDeleteElementModal () {
+function closeDeleteElementModal() {
     deleteElementModal.classList.add('hidden');
     deleteElementOverlay.classList.add('hidden');
 }
@@ -315,7 +329,7 @@ const editElement = function (elementName) {
 
 
 const deletePalette = function () {
-    palettes = palettes.filter(function( pal ) {
+    palettes = palettes.filter(function (pal) {
         return pal.name !== viewPalette.name && pal.createdDate !== viewPalette.createdDate;
     });
     closeDeleteModal();
@@ -326,7 +340,7 @@ const deletePalette = function () {
 }
 
 const deleteElement = function () {
-    viewPalette.elementsData = viewPalette.elementsData.filter(function( elm ) {
+    viewPalette.elementsData = viewPalette.elementsData.filter(function (elm) {
         return elm.css !== viewElement.css && elm.title !== viewElement.title;
     });
 
@@ -352,25 +366,6 @@ closeDeleteModal()
 closeEditElementModal()
 closeDeleteElementModal()
 
-var minLines = 3;
-var startingValue = '';
-for (var i = 0; i < minLines; i++) {
-    startingValue += '\n';
-}
-
-startingValue += '.text {}'
-
-
-var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
-    mode: "css",
-    tabSize: 2,
-    lineNumbers: true,
-    enableCodeFormatting: false,
-    value: startingValue,
-    autoClearEmptyLines: true
-});
-
-htmlEditor.setValue(startingValue)
 
 async function updatePaletteUI() {
     await retreivePalettes();
@@ -450,7 +445,7 @@ deleteElementModalConfirmButton.addEventListener("click", () => {
 })
 
 deleteElementCloseModalButton.addEventListener("click", () => {
-   closeDeleteElementModal();
+    closeDeleteElementModal();
 })
 
 confirmEditPaletteButton.addEventListener("click", () => {
@@ -459,7 +454,7 @@ confirmEditPaletteButton.addEventListener("click", () => {
 
 editElementCloseModalButton.addEventListener("click", () => {
     closeEditElementModal();
- })
+})
 
 openDeleteModalButton.addEventListener("click", () => {
     openDeleteModal();
@@ -477,8 +472,8 @@ selectElementButton.addEventListener("click", () => {
     chrome.tabs.query({
         active: true,
         currentWindow: true
-    }, function(tabs) {
-        chrome.runtime.sendMessage({action: "initiateElementSelect", data: {tab: tabs[0], palette: viewPalette.name}})
+    }, function (tabs) {
+        chrome.runtime.sendMessage({ action: "initiateElementSelect", data: { tab: tabs[0], palette: viewPalette.name } })
         window.close();
     });
 })
@@ -487,7 +482,7 @@ selectElementButton.addEventListener("click", () => {
 
 
 function getUserCode() {
-    return htmlEditor.getValue() + "\n" + "<style>" + "\n" + cssEditor.getValue() + "\n" + "</style>" + "\n" +  "<script>" + "\n" + jsEditor.getValue() + "\n" + "</script>";
+    return htmlEditor.getValue() + "\n" + "<style>" + "\n" + cssEditor.getValue() + "\n" + "</style>" + "\n" + "<script>" + "\n" + jsEditor.getValue() + "\n" + "</script>";
 }
 function update() {
     //this is the content of iframe
@@ -500,13 +495,13 @@ function update() {
 
 //Download Code File
 function downloadCode() {
-     //1.Create a blob
-     const userCode = getUserCode();
-     const blob = new Blob([userCode], {type: "text/html"});
-     downloadFile(blob,"index.html");
+    //1.Create a blob
+    const userCode = getUserCode();
+    const blob = new Blob([userCode], { type: "text/html" });
+    downloadFile(blob, "index.html");
 }
 //2.function that accepts blob and file name
-function downloadFile(blob,fileName) {
+function downloadFile(blob, fileName) {
     //3.create url for blob
     const url = window.URL.createObjectURL(blob);
     //4.anchor tag to download
@@ -519,5 +514,5 @@ function downloadFile(blob,fileName) {
     //remove anchor tag
     a.remove();
 
-    document.addEventListener("focus",w=>{window.URL.revokeObjectURL(url)})
+    document.addEventListener("focus", w => { window.URL.revokeObjectURL(url) })
 }
