@@ -56,6 +56,7 @@ const openDeleteElementModalButton = document.getElementById("delete-element-but
 const deleteElementModalConfirmButton = document.getElementById("delete-element-button-confirm");
 const deleteElementCloseModalButton = document.getElementById("btn-close-delete-element");
 const deleteElementOverlay = document.getElementById("delete-element-overlay");
+const saveElementClipboard = document.getElementById("save-element-styles");
 
 const saveClipboardButton = document.getElementById("save-clipboard-button");
 const saveCssButton = document.getElementById("save-css-button");
@@ -436,6 +437,7 @@ paletteBackButton.addEventListener("click", () => {
 backElementButton.addEventListener("click", () => {
     viewPalettePage.hidden = false;
     viewElementPage.hidden = true;
+    cssEditor.toTextArea();
     renderElementsPalette();
 })
 
@@ -508,9 +510,13 @@ saveClipboardButton.addEventListener("click", () => {
 })
 
 saveCssButton.addEventListener("click", function() {
-    // set view element css
-    // save into db
-    // show clipbaord again
+    viewElement.css = cssEditor.getValue();
+    viewPalette.elementsData[viewElementIndex] = viewElement;
+    palettes[viewPaletteIndex] = viewPalette;
+    setPalettes(palettes);
+    cancelCssButton.hidden = true;
+    saveCssButton.hidden = true;
+    saveClipboardButton.hidden = false;
 })
 
 cancelCssButton.addEventListener("click", function() {    
@@ -518,6 +524,16 @@ cancelCssButton.addEventListener("click", function() {
     cancelCssButton.hidden = true;
     saveCssButton.hidden = true;
     saveClipboardButton.hidden = false;
+})
+
+saveElementClipboard.addEventListener("click", function() {
+    console.log("saving")
+    var result = "";
+    selectedPalette.elementsData.forEach((eData) => {
+        result += eData.css;
+        result += "\n"
+    })
+    console.log(result);
 })
 
 function getUserCode() {
