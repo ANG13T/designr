@@ -389,7 +389,7 @@
 
   /* Elements View Display */
 
-  #select-element-button {
+  #select-element-button, #save-element-styles {
     display: inline-block;
     padding: 0.8rem 1.4rem;
     width: 90%;
@@ -405,7 +405,7 @@
     transition: 0.4s;
   }
 
-  #select-element-button:hover {
+  #select-element-button:hover, #save-element-styles:hover {
     color: #343435;
     background-color: white;
   }

@@ -437,7 +437,6 @@ paletteBackButton.addEventListener("click", () => {
 backElementButton.addEventListener("click", () => {
     viewPalettePage.hidden = false;
     viewElementPage.hidden = true;
-    cssEditor.toTextArea();
     renderElementsPalette();
 })
 
@@ -529,7 +528,7 @@ cancelCssButton.addEventListener("click", function() {
 saveElementClipboard.addEventListener("click", function() {
     console.log("saving")
     var result = "";
-    selectedPalette.elementsData.forEach((eData) => {
+    viewPalette.elementsData.forEach((eData) => {
         result += eData.css;
         result += "\n"
     })
