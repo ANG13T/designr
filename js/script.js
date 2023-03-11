@@ -507,6 +507,19 @@ saveClipboardButton.addEventListener("click", () => {
     }), 2000)
 })
 
+saveCssButton.addEventListener("click", function() {
+    // set view element css
+    // save into db
+    // show clipbaord again
+})
+
+cancelCssButton.addEventListener("click", function() {    
+    cssEditor.setValue(viewElement.css)
+    cancelCssButton.hidden = true;
+    saveCssButton.hidden = true;
+    saveClipboardButton.hidden = false;
+})
+
 function getUserCode() {
     return cssEditor.getValue() + "\n" + "<style>" + "\n" + cssEditor.getValue() + "\n" + "</style>" + "\n" + "<script>" + "\n" + jsEditor.getValue() + "\n" + "</script>";
 }
