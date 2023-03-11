@@ -526,6 +526,10 @@ cancelCssButton.addEventListener("click", function() {
     saveClipboardButton.hidden = false;
 })
 
+viewSettingsButton.addEventListener("click", () => {
+    window.open("https://github.com/ANG13T/designr", "_blank");
+})
+
 saveElementClipboard.addEventListener("click", function() {
     console.log("saving")
     var result = "";
