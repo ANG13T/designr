@@ -62,6 +62,7 @@ const saveClipboardButton = document.getElementById("save-clipboard-button");
 const saveCssButton = document.getElementById("save-css-button");
 const cancelCssButton = document.getElementById("cancel-css-button");
 const clipBoardIcon = document.getElementById("clipboard-icon");
+const clipBoardIconPal = document.getElementById("clipboard-icon-pal");
 
 var cssEditor;
 
@@ -531,8 +532,17 @@ saveElementClipboard.addEventListener("click", function() {
     viewPalette.elementsData.forEach((eData) => {
         result += eData.css;
         result += "\n"
+        result += "\n"
     })
     console.log(result);
+
+    clipBoardIconPal.classList.remove("fa-clipboard");
+    clipBoardIconPal.classList.add("fa-thumbs-o-up");
+    navigator.clipboard.writeText(result)
+    setTimeout((function() {
+        clipBoardIconPal.classList.remove("fa-thumbs-o-up");
+        clipBoardIconPal.classList.add("fa-clipboard");
+    }), 2000)
 })
 
 function getUserCode() {
