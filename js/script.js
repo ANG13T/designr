@@ -137,6 +137,9 @@ function renderViewPalettePage() {
     viewPalettePage.hidden = false;
     paletteElementsTableContainer.hidden = true;
     renderElementsPalette();
+    saveCssButton.hidden = true;
+    cancelCssButton.hidden = true;
+    saveClipboardButton.hidden = false;
 }
 
 function renderElementsPalette() {
@@ -184,8 +187,21 @@ function renderElementsPalette() {
                 lineNumbers: true,
                 enableCodeFormatting: false,
                 value: viewElement.css,
-                autoClearEmptyLines: true
+                autoClearEmptyLines: true,
             });
+
+            cssEditor.on("change", function() {
+                if(cssEditor.getValue() != viewElement.css) {
+                    saveClipboardButton.hidden = true;
+                    saveCssButton.hidden = false;
+                    cancelCssButton.hidden = false;
+                } else {
+                    saveClipboardButton.hidden = false;
+                    saveCssButton.hidden = true;
+                    cancelCssButton.hidden = true;
+                }
+            })
+
         })
     })
 }
@@ -490,7 +506,6 @@ saveClipboardButton.addEventListener("click", () => {
         clipBoardIcon.classList.add("fa-clipboard");
     }), 2000)
 })
-
 
 function getUserCode() {
     return cssEditor.getValue() + "\n" + "<style>" + "\n" + cssEditor.getValue() + "\n" + "</style>" + "\n" + "<script>" + "\n" + jsEditor.getValue() + "\n" + "</script>";
