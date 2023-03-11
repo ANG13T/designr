@@ -57,6 +57,13 @@ const deleteElementModalConfirmButton = document.getElementById("delete-element-
 const deleteElementCloseModalButton = document.getElementById("btn-close-delete-element");
 const deleteElementOverlay = document.getElementById("delete-element-overlay");
 
+const saveClipboardButton = document.getElementById("save-clipboard-button");
+const saveCssButton = document.getElementById("save-css-button");
+const cancelCssButton = document.getElementById("cancel-css-button");
+const clipBoardIcon = document.getElementById("clipboard-icon");
+
+var cssEditor;
+
 let palettes = [];
 let selectedPalette = null;
 let selectedPaletteIndex = 0;
@@ -171,7 +178,7 @@ function renderElementsPalette() {
             closeDeleteModal();
 
 
-            var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
+            cssEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
                 mode: "css",
                 tabSize: 2,
                 lineNumbers: true,
@@ -179,8 +186,6 @@ function renderElementsPalette() {
                 value: viewElement.css,
                 autoClearEmptyLines: true
             });
-
-            htmlEditor.setValue(startingValue)
         })
     })
 }
@@ -476,11 +481,19 @@ selectElementButton.addEventListener("click", () => {
     });
 })
 
-
+saveClipboardButton.addEventListener("click", () => {
+    clipBoardIcon.classList.remove("fa-clipboard");
+    clipBoardIcon.classList.add("fa-thumbs-o-up");
+    navigator.clipboard.writeText(cssEditor.getValue())
+    setTimeout((function() {
+        clipBoardIcon.classList.remove("fa-thumbs-o-up");
+        clipBoardIcon.classList.add("fa-clipboard");
+    }), 2000)
+})
 
 
 function getUserCode() {
-    return htmlEditor.getValue() + "\n" + "<style>" + "\n" + cssEditor.getValue() + "\n" + "</style>" + "\n" + "<script>" + "\n" + jsEditor.getValue() + "\n" + "</script>";
+    return cssEditor.getValue() + "\n" + "<style>" + "\n" + cssEditor.getValue() + "\n" + "</style>" + "\n" + "<script>" + "\n" + jsEditor.getValue() + "\n" + "</script>";
 }
 function update() {
     //this is the content of iframe
