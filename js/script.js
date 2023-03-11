@@ -170,15 +170,13 @@ function renderElementsPalette() {
             closeEditModal();
             closeDeleteModal();
 
-            startingValue += viewElement.css;
-
 
             var htmlEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
                 mode: "css",
                 tabSize: 2,
                 lineNumbers: true,
                 enableCodeFormatting: false,
-                value: startingValue,
+                value: viewElement.css,
                 autoClearEmptyLines: true
             });
 

@@ -121,7 +121,7 @@
   .cm-s-default .cm-meta {color: #555;}
   .cm-s-default .cm-qualifier {color: #9effff;}
   .cm-property {color: #ae81ff;}
-  .cm-s-default .cm-builtin {color: #30a;}
+  .cm-s-default .cm-builtin {color: rgb(173, 138, 255);}
   .cm-s-default .cm-bracket {color: #997;}
   .cm-s-default .cm-tag {color: #9effff;}
   .cm-s-default .cm-attribute {color: #00c;}
@@ -282,6 +282,10 @@
     background: rgb(36, 34, 34);
     -moz-box-sizing: content-box;
     box-sizing: content-box;
+  }
+
+  .CodeMirror-gutter, .CodeMirror-linenumbers {
+    width: 0px !important;
   }
   
   .CodeMirror-measure {
