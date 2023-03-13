@@ -64,6 +64,8 @@ const cancelCssButton = document.getElementById("cancel-css-button");
 const clipBoardIcon = document.getElementById("clipboard-icon");
 const clipBoardIconPal = document.getElementById("clipboard-icon-pal");
 
+const codeTemplateContainer = document.getElementById("code-template-container");
+
 var cssEditor;
 
 let palettes = [];
@@ -182,7 +184,7 @@ function renderElementsPalette() {
             closeEditModal();
             closeDeleteModal();
 
-
+            initCodeMirror();
             cssEditor = CodeMirror(document.querySelector(".editor .code .html-code"), {
                 mode: "css",
                 tabSize: 2,
@@ -551,6 +553,7 @@ saveElementClipboard.addEventListener("click", function() {
 function getUserCode() {
     return cssEditor.getValue() + "\n" + "<style>" + "\n" + cssEditor.getValue() + "\n" + "</style>" + "\n" + "<script>" + "\n" + jsEditor.getValue() + "\n" + "</script>";
 }
+
 function update() {
     //this is the content of iframe
     var code = document.getElementById('iframe').contentWindow.document;
@@ -558,6 +561,16 @@ function update() {
     //getting value from editor and puts in the iframe
     code.write(getUserCode());
     code.close();
+}
+
+function initCodeMirror() {
+    if(codeTemplateContainer.hasChildNodes()) {
+        codeTemplateContainer.innerHTML = "";
+    }
+    var codeMirror = document.createElement("div");
+    codeMirror.classList.add("html-code");
+    codeMirror.classList.add("code-display");
+    codeTemplateContainer.appendChild(codeMirror);
 }
 
 //Download Code File
