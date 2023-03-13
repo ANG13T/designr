@@ -139,11 +139,16 @@ function renderPalettes(selectedPal) {
 function renderViewPalettePage() {
     mainPage.hidden = true;
     viewPalettePage.hidden = false;
+    console.log("ffff", viewPalette.elementsData.length)
     paletteElementsTableContainer.hidden = true;
     renderElementsPalette();
     saveCssButton.hidden = true;
     cancelCssButton.hidden = true;
-    saveClipboardButton.hidden = false;
+    if(viewPalette.elementsData.length == 0) {
+        saveElementClipboard.hidden = true;
+    } else {
+        saveElementClipboard.hidden = false;
+    }
 }
 
 function renderElementsPalette() {
