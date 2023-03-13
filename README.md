@@ -12,6 +12,7 @@
 
 <h2 align="center">🛠 &nbsp; Setup &nbsp;</h2>
 <p align="center">designr is an <strong>open-source</strong> <strong>browser extension</strong> designed to inspect and save CSS styling on web pages. designr provides information about <strong>element styles</strong> and save the styles into a palette for later use. designr is a simple and intuitive way for designers and web developers to  <strong>save CSS references.</strong></p>
+
 <br/>
 
 <h2 align="center">⚙️ &nbsp; Code Structure &nbsp;</h2>
