@@ -531,7 +531,6 @@ viewSettingsButton.addEventListener("click", () => {
 })
 
 saveElementClipboard.addEventListener("click", function() {
-    console.log("saving")
     var result = "";
     viewPalette.elementsData.forEach((eData) => {
         result += eData.css;
