@@ -1,7 +1,7 @@
 {
   "name": "designr",
   "version": "1.0.0",
-  "description": "Save snapshots of web components and designs made for web designers and developers",
+  "description": "Inspect CSS styles and save snapshots of web components and designs",
   "background": {
     "scripts": [
       "js/background.js"
