@@ -497,13 +497,13 @@ deleteModalConfirmButton.addEventListener("click", () => {
 })
 
 selectElementButton.addEventListener("click", () => {
-    console.log("sdajkshdjkas")
     chrome.tabs.query({
         active: true,
         currentWindow: true
     }, function (tabs) {
-        chrome.runtime.sendMessage({ action: "initiateElementSelect", data: { tab: tabs[0], palette: viewPalette.name } })
-        // window.close();
+        chrome.runtime.sendMessage({ action: "initiateElementSelect", data: { tab: tabs[0], palette: viewPalette.name } }).then(() => {
+            window.close();
+        })
     });
 })
 
