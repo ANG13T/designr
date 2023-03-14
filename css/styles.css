@@ -57,22 +57,28 @@
   
   .customButton {
     text-align: center !important;
-    min-width: 80vw;
+    min-width: 70vw !important;
     padding: 15px;
     font-size: 1rem;
     transition: 0.5s;
     color: white;
+    margin: auto;
     border: 2px solid white;
+    text-decoration: none;
     outline: none;
     background: transparent;
     font-weight: bold;
+    margin-bottom: 30px !important;
+    display: block;
     border-radius: 5px;
     margin-top: 2rem;
     cursor: pointer;
   }
 
   .githubButton {
-    margin-top: 1.3rem;
+    margin-top: 0.5rem;
+    margin-left: 32px;
+    margin-right: 32px;
   }
 
   .customButton:hover {
