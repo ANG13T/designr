@@ -1,5 +1,5 @@
 /*!
-* designr, A Google Chrome Extension for fellow web developers, web designers, and hobbyists.
+* designr, A Google Chrome Extension for inspect CSS styles and save snapshots of web components and designs.
 * https://github.com/ANG13T/designr
 */
 
@@ -107,7 +107,6 @@ async function retreivePalettes() {
 }
 
 function renderPalettes(selectedPal) {
-    console.log("sek", selectedPal)
     removePaletteRows();
     if (selectedPal.length > 0) {
         paletteTableNone.hidden = true;
@@ -139,7 +138,6 @@ function renderPalettes(selectedPal) {
 function renderViewPalettePage() {
     mainPage.hidden = true;
     viewPalettePage.hidden = false;
-    console.log("ffff", viewPalette.elementsData.length)
     paletteElementsTableContainer.hidden = true;
     renderElementsPalette();
     saveCssButton.hidden = true;

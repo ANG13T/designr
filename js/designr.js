@@ -1,3 +1,8 @@
+/*!
+* designr, A Google Chrome Extension for inspect CSS styles and save snapshots of web components and designs.
+* https://github.com/ANG13T/designr
+*/
+
 var designr_element
 
 var designr_element_cssDefinition

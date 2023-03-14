@@ -1,7 +1,11 @@
+/*!
+* designr, A Google Chrome Extension for inspect CSS styles and save snapshots of web components and designs.
+* https://github.com/ANG13T/designr
+*/
+
 var designrLoaded              = false; 
 var cssCiewerContextMenusParent  = null;
 var selectedPaletteName = "";
-
 
 chrome.runtime.onMessage.addListener (
     function (request, sender, sendResponse) {
@@ -12,8 +16,6 @@ chrome.runtime.onMessage.addListener (
 		
 		if (request.action == "clickElement") {
 			selectElementClick(request.data);
-			console.log("rc", request.data.props)
-			console.log("rc", request.data.css)
 		}
     }
 );
@@ -40,7 +42,6 @@ function iniateElementSelect(tab) {
 		chrome.contextMenus.create( { "title": "element.simpleCssDefinition", contexts:["all"] , "parentId": cssCiewerContextMenusParent, "onclick": cssCiewerDebugElSimpleCssDefinition } );
 	}
 
-	console.log("new init")
 	chrome.scripting.executeScript({target: {tabId: tab.id}, files:['js/designr.js']});
 	chrome.scripting.insertCSS({target: {tabId: tab.id}, files:['css/designr.css']});
 
