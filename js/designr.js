@@ -855,6 +855,7 @@ function designr()
 	{
 		var document = GetCurrentDocument();
 		var elements = this.GetAllElements(document.body);
+		console.log("dasklsdajlksdjs")
 
 		for (var i = 0; i < elements.length; i++)	{
 			elements[i].addEventListener("mouseover", designrMouseOver, false);
