@@ -4,7 +4,6 @@
 */
 
 var designrLoaded              = false; 
-var cssCiewerContextMenusParent  = null;
 var selectedPaletteName = "";
 
 chrome.runtime.onMessage.addListener (
