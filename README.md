@@ -2,7 +2,7 @@
 
 <p align="center">designr inspects <strong>CSS styles</strong> and saves <strong>snapshots</strong> of <strong>web components</strong> and <strong>designs</strong></p>
 
-<p align="center"><a rel="noreferrer noopener" href="https://chrome.google.com/webstore/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh/"><img alt="Chrome Web Store" src="https://img.shields.io/badge/Chrome-141e24.svg?&style=for-the-badge&logo=google-chrome&logoColor=white"></a>  
+<p align="center"><a rel="noreferrer noopener" href="https://chrome.google.com/webstore/detail/designr/llojjggmiihgebjhofkcedffdfdfeegn?hl=en/"><img alt="Chrome Web Store" src="https://img.shields.io/badge/Chrome-141e24.svg?&style=for-the-badge&logo=google-chrome&logoColor=white"></a>  
   
 <hr />
 
